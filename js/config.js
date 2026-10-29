@@ -49,7 +49,7 @@ window.CONFIG = {
 
     // Contraseña opcional en la misma intro (cambia a true si quieres activarla)
     contrasenaActiva: true,
-    contrasena: "25082026",
+    contrasena: "secreto",
     placeholderContrasena: "DIndon",
     mensajeErrorContrasena: "Clave incorrecta, inténtalo de nuevo 🌻"
   },
