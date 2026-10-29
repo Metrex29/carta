@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Evitar que buscadores (Google, Bing, etc.) indexen la página -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="googlebot" content="noindex, nofollow" />
+
+  <title>Nuestra Historia ❤️</title>
+  <meta name="description" content="Un rincón especial creado con amor para guardar nuestros mejores momentos juntos." />
+
+  <!-- Etiquetas Open Graph y Twitter para que el enlace se vea bonito al compartir por WhatsApp / Telegram -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nuestra Historia ❤️" id="og-title" />
+  <meta property="og:description" content="Contigo cualquier instante se convierte en mi recuerdo favorito." id="og-description" />
+  <meta property="og:image" content="fotos/portada.svg" id="og-image" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nuestra Historia ❤️" id="tw-title" />
+  <meta name="twitter:description" content="Contigo cualquier instante se convierte en mi recuerdo favorito." id="tw-description" />
+  <meta name="twitter:image" content="fotos/portada.svg" id="tw-image" />
+
+  <!-- Favicon de corazón en SVG (ruta relativa) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Tipografías de Google Fonts (con fallback en CSS si no hay conexión) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Hoja de estilos principal (ruta relativa) -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Enlace de accesibilidad para saltar al contenido principal con teclado -->
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido</a>
+
+  <!-- ====================================================================
+       PANTALLA DE ENTRADA CON CONTRASEÑA OPCIONAL (Se activa en config.js)
+       ==================================================================== -->
+  <div id="pantalla-acceso" class="pantalla-acceso oculto" role="dialog" aria-modal="true" aria-labelledby="acceso-titulo">
+    <div class="acceso-tarjeta">
+      <div class="acceso-icono" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="42" height="42" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+      <h1 id="acceso-titulo" class="acceso-titulo">Un rincón solo para nosotros</h1>
+      <p id="acceso-subtitulo" class="acceso-subtitulo">Introduce nuestra clave especial para entrar</p>
+      <form id="form-acceso" class="acceso-form" autocomplete="off">
+        <label for="input-acceso" class="sr-only">Clave secreta</label>
+        <input
+          type="password"
+          id="input-acceso"
+          class="acceso-input"
+          placeholder="Escribe la clave aquí..."
+          required
+        />
+        <button type="submit" id="btn-acceso" class="boton-primario">
+          Entrar a nuestra historia
+        </button>
+      </form>
+      <p id="acceso-pista" class="acceso-pista"></p>
+      <p id="acceso-error" class="acceso-error oculto" role="alert"></p>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       CONTENEDOR DE CORAZONES / PÉTALOS CAYENDO
+       ==================================================================== -->
+  <div id="contenedor-efectos" class="contenedor-efectos" aria-hidden="true"></div>
+
+  <!-- ====================================================================
+       BARRA DE NAVEGACIÓN SUPERIOR SUAVE
+       ==================================================================== -->
+  <header id="barra-navegacion" class="barra-navegacion" aria-label="Navegación principal">
+    <div class="nav-contenedor">
+      <a href="#portada" id="nav-marca" class="nav-marca">C &amp; L</a>
+      <nav class="nav-enlaces">
+        <a href="#contador">Tiempo</a>
+        <a href="#galeria">Fotos</a>
+        <a href="#historia">Historia</a>
+        <a href="#razones">Razones</a>
+        <a href="#carta">Carta</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       BOTONES FLOTANTES (MÚSICA Y EFECTO DE CORAZONES/PÉTALOS)
+       ==================================================================== -->
+  <div class="controles-flotantes" aria-label="Controles de ambiente">
+    <!-- Botón para activar/desactivar corazones o pétalos -->
+    <button
+      type="button"
+      id="btn-efectos"
+      class="btn-flotante"
+      aria-pressed="true"
+      aria-label="Desactivar animación de corazones"
+      title="Activar o desactivar lluvia de corazones"
+    >
+      <span class="btn-flotante-icono" aria-hidden="true">✨</span>
+      <span id="texto-btn-efectos" class="btn-flotante-texto">Efecto</span>
+    </button>
+
+    <!-- Reproductor de música (desactivado hasta que el usuario pulse) -->
+    <button
+      type="button"
+      id="btn-musica"
+      class="btn-flotante btn-musica"
+      aria-pressed="false"
+      aria-label="Reproducir música de fondo"
+      title="Reproducir o pausar nuestra canción"
+    >
+      <span id="icono-musica" class="btn-flotante-icono" aria-hidden="true">♪</span>
+      <span id="texto-btn-musica" class="btn-flotante-texto">Música</span>
+    </button>
+    <audio id="audio-fondo" preload="none" loop></audio>
+  </div>
+
+  <!-- ====================================================================
+       CONTENIDO PRINCIPAL
+       ==================================================================== -->
+  <main id="contenido-principal">
+    <!-- 1. PORTADA (HERO) -->
+    <section id="portada" class="hero" aria-label="Portada">
+      <div id="hero-fondo" class="hero-fondo" role="img" aria-label="Imagen de fondo de portada"></div>
+      <div class="hero-velo"></div>
+
+      <div class="hero-contenido animar-entrada">
+        <span id="hero-etiqueta" class="hero-etiqueta">Nuestra Historia</span>
+        <h1 class="hero-nombres">
+          <span id="hero-nombre1">Carlos</span>
+          <span id="hero-conector" class="hero-conector">&amp;</span>
+          <span id="hero-nombre2">Lucía</span>
+        </h1>
+        <div class="hero-separador" aria-hidden="true">
+          <span></span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span></span>
+        </div>
+        <p id="hero-frase" class="hero-frase">
+          Contigo cualquier instante se convierte en mi recuerdo favorito.
+        </p>
+        <a href="#contador" id="hero-boton" class="boton-hero">
+          Descubrir nuestra historia
+        </a>
+      </div>
+
+      <a href="#contador" class="hero-flecha" aria-label="Bajar a la siguiente sección">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 10l5 5 5-5"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- 2. CONTADOR EN VIVO DEL TIEMPO JUNTOS -->
+    <section id="contador" class="seccion seccion-clara revelar" aria-labelledby="contador-titulo">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="insignia-seccion" aria-hidden="true">♥</span>
+          <h2 id="contador-titulo" class="titulo-seccion">Tiempo caminando juntos</h2>
+          <p id="contador-subtitulo" class="subtitulo-seccion">
+            Cada segundo a tu lado cuenta desde aquel primer día
+          </p>
+        </div>
+
+        <div class="contador-grid" role="timer" aria-live="off" aria-label="Tiempo transcurrido juntos">
+          <div class="contador-caja">
+            <span id="cnt-anios" class="contador-numero">0</span>
+            <span class="contador-etiqueta">Años</span>
+          </div>
+          <div class="contador-caja">
+            <span id="cnt-meses" class="contador-numero">0</span>
+            <span class="contador-etiqueta">Meses</span>
+          </div>
+          <div class="contador-caja">
+            <span id="cnt-dias" class="contador-numero">0</span>
+            <span class="contador-etiqueta">Días</span>
+          </div>
+          <div class="contador-caja">
+            <span id="cnt-horas" class="contador-numero">00</span>
+            <span class="contador-etiqueta">Horas</span>
+          </div>
+          <div class="contador-caja">
+            <span id="cnt-minutos" class="contador-numero">00</span>
+            <span class="contador-etiqueta">Minutos</span>
+          </div>
+          <div class="contador-caja contador-caja-acento">
+            <span id="cnt-segundos" class="contador-numero">00</span>
+            <span class="contador-etiqueta">Segundos</span>
+          </div>
+        </div>
+
+        <p id="contador-frase-final" class="contador-frase-final">
+          …y este contador nunca dejará de sumar momentos contigo.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. GALERÍA DE FOTOS (MASONRY + LIGHTBOX) -->
+    <section id="galeria" class="seccion seccion-alterna revelar" aria-labelledby="galeria-titulo">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="insignia-seccion" aria-hidden="true">✦</span>
+          <h2 id="galeria-titulo" class="titulo-seccion">Nuestros Momentos</h2>
+          <p id="galeria-subtitulo" class="subtitulo-seccion">
+            Toca cualquier fotografía para verla en grande
+          </p>
+        </div>
+
+        <div id="galeria-masonry" class="galeria-masonry" role="list">
+          <!-- Se rellena dinámicamente desde js/config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LÍNEA DE TIEMPO DE NUESTRA HISTORIA -->
+    <section id="historia" class="seccion seccion-clara revelar" aria-labelledby="historia-titulo">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="insignia-seccion" aria-hidden="true">♥</span>
+          <h2 id="historia-titulo" class="titulo-seccion">Nuestra Historia</h2>
+          <p id="historia-subtitulo" class="subtitulo-seccion">
+            Los capítulos más bonitos del camino que hemos recorrido
+          </p>
+        </div>
+
+        <div id="linea-tiempo" class="linea-tiempo">
+          <!-- Se rellena dinámicamente desde js/config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. RAZONES POR LAS QUE TE QUIERO -->
+    <section id="razones" class="seccion seccion-alterna revelar" aria-labelledby="razones-titulo">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="insignia-seccion" aria-hidden="true">✦</span>
+          <h2 id="razones-titulo" class="titulo-seccion">Razones por las que te quiero</h2>
+          <p id="razones-subtitulo" class="subtitulo-seccion">
+            Toca cada tarjeta para descubrir lo que guardo en el corazón
+          </p>
+          <button type="button" id="btn-voltear-todas" class="boton-secundario">
+            Revelar todas las tarjetas
+          </button>
+        </div>
+
+        <div id="razones-grid" class="razones-grid">
+          <!-- Se rellena dinámicamente desde js/config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CARTA FINAL CON EFECTO MÁQUINA DE ESCRIBIR -->
+    <section id="carta" class="seccion seccion-clara revelar" aria-labelledby="carta-titulo">
+      <div class="contenedor contenedor-carta">
+        <div class="encabezado-seccion">
+          <span class="insignia-seccion" aria-hidden="true">✉</span>
+          <h2 id="carta-titulo" class="titulo-seccion">Una carta para ti</h2>
+          <p id="carta-subtitulo" class="subtitulo-seccion">
+            Palabras escritas despacio, como me gusta vivir la vida contigo
+          </p>
+        </div>
+
+        <article class="carta-papel" aria-label="Carta dedicada">
+          <div class="carta-sello" aria-hidden="true">♥</div>
+          <p id="carta-saludo" class="carta-saludo">Mi amor,</p>
+
+          <div id="carta-cuerpo" class="carta-cuerpo" aria-live="polite">
+            <!-- Se escribe con efecto máquina de escribir al hacer scroll -->
+          </div>
+
+          <div id="carta-cierre" class="carta-cierre oculto-suave">
+            <p id="carta-despedida" class="carta-despedida">Con todo mi corazón,</p>
+            <p id="carta-firma" class="carta-firma">Carlos ❤️</p>
+          </div>
+
+          <div class="carta-acciones">
+            <button type="button" id="btn-mostrar-carta" class="boton-texto">
+              Mostrar carta completa al instante
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       PIE DE PÁGINA
+       ==================================================================== -->
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <div class="pie-corazon" aria-hidden="true">♥</div>
+      <p id="pie-nombres" class="pie-nombres">Carlos &amp; Lucía</p>
+      <p id="pie-texto" class="pie-texto">Hecho con todo mi amor para ti</p>
+      <p id="pie-nota" class="pie-nota">Nuestro rincón privado para siempre</p>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       LIGHTBOX (VISOR DE FOTOS A PANTALLA COMPLETA)
+       ==================================================================== -->
+  <div
+    id="lightbox"
+    class="lightbox oculto"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Visor de fotografías"
+  >
+    <button
+      type="button"
+      id="lightbox-cerrar"
+      class="lightbox-btn lightbox-cerrar"
+      aria-label="Cerrar visor de fotos (Escape)"
+    >
+      &times;
+    </button>
+
+    <button
+      type="button"
+      id="lightbox-anterior"
+      class="lightbox-btn lightbox-anterior"
+      aria-label="Foto anterior"
+    >
+      &#10094;
+    </button>
+
+    <figure class="lightbox-contenido">
+      <div class="lightbox-marco-img">
+        <img id="lightbox-img" src="" alt="" />
+      </div>
+      <figcaption class="lightbox-pie">
+        <p id="lightbox-descripcion" class="lightbox-descripcion"></p>
+        <div class="lightbox-meta">
+          <span id="lightbox-fecha" class="lightbox-fecha"></span>
+          <span id="lightbox-contador" class="lightbox-contador"></span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <button
+      type="button"
+      id="lightbox-siguiente"
+      class="lightbox-btn lightbox-siguiente"
+      aria-label="Foto siguiente"
+    >
+      &#10095;
+    </button>
+  </div>
+
+  <!-- Scripts (rutas relativas: primero config.js y luego main.js) -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

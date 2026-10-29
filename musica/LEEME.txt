@@ -1,0 +1,7 @@
+Coloca en esta carpeta (/musica) tu canción favorita en formato MP3 (por ejemplo: cancion.mp3).
+
+Después, abre el archivo js/config.js y en el bloque "musica" asegúrate de tener:
+  activa: true,
+  archivo: "musica/cancion.mp3",
+
+Recuerda que en el plan gratuito de Cloudflare Pages cada archivo puede pesar como máximo 25 MiB (un MP3 normal suele pesar entre 3 y 8 MB, así que funcionará perfecto).

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1050">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3c1b2e" />
+      <stop offset="55%" stop-color="#75314d" />
+      <stop offset="100%" stop-color="#c97a87" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1050" fill="url(#bg4)" />
+  <g fill="#fff8f0" opacity="0.65">
+    <circle cx="160" cy="180" r="2.5" />
+    <circle cx="640" cy="150" r="2" />
+    <circle cx="520" cy="260" r="3" />
+    <circle cx="260" cy="310" r="1.8" />
+    <circle cx="690" cy="380" r="2.2" />
+    <circle cx="130" cy="440" r="2" />
+  </g>
+  <circle cx="400" cy="380" r="95" fill="#ffefd6" opacity="0.85" />
+  <circle cx="435" cy="360" r="85" fill="#59253d" />
+  <path d="M0 800 Q240 730 500 790 T800 760 L800 1050 L0 1050 Z" fill="#28101e" opacity="0.8" />
+  <text x="400" y="610" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#ffefd6" font-style="italic">Bajo las estrellas</text>
+  <text x="400" y="650" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#f3cbd1" letter-spacing="2">FOTO DE EJEMPLO 04</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f9e0db" />
+      <stop offset="50%" stop-color="#eab5b8" />
+      <stop offset="100%" stop-color="#b85d72" />
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="38%" r="45%">
+      <stop offset="0%" stop-color="#fff8f3" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#fff8f3" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg1)" />
+  <circle cx="400" cy="380" r="320" fill="url(#glow1)" />
+  <path d="M0 760 Q220 690 440 750 T800 720 L800 1000 L0 1000 Z" fill="#8e3a52" opacity="0.35" />
+  <path d="M0 830 Q300 780 560 840 T800 810 L800 1000 L0 1000 Z" fill="#632136" opacity="0.55" />
+  <g transform="translate(400, 390)">
+    <path fill="#9d3653" opacity="0.85" d="M0 75 C-5 75 -10 73 -14 69 C-65 22 -120 -28 -120 -88 C-120 -128 -88 -160 -48 -160 C-27 -160 -8 -150 0 -134 C8 -150 27 -160 48 -160 C88 -160 120 -128 120 -88 C120 -28 65 22 14 69 C10 73 5 75 0 75 Z" />
+  </g>
+  <text x="400" y="610" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#52192b" font-style="italic">Nuestro primer paseo</text>
+  <text x="400" y="650" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#7a3248" letter-spacing="2">FOTO DE EJEMPLO 01</text>
+</svg>

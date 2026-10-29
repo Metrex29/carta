@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c1220" />
+      <stop offset="45%" stop-color="#5e233b" />
+      <stop offset="80%" stop-color="#a84a62" />
+      <stop offset="100%" stop-color="#e8a598" />
+    </linearGradient>
+    <radialGradient id="sun" cx="65%" cy="55%" r="45%">
+      <stop offset="0%" stop-color="#ffecd2" stop-opacity="0.7" />
+      <stop offset="40%" stop-color="#fcb69f" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#5e233b" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)" />
+  <rect width="1600" height="1000" fill="url(#sun)" />
+  <!-- Estrellas suaves -->
+  <g fill="#fff8f0" opacity="0.55">
+    <circle cx="240" cy="180" r="2.2" />
+    <circle cx="480" cy="110" r="1.5" />
+    <circle cx="720" cy="210" r="2" />
+    <circle cx="1050" cy="130" r="2.5" />
+    <circle cx="1310" cy="220" r="1.8" />
+    <circle cx="190" cy="390" r="1.4" />
+    <circle cx="880" cy="95" r="1.6" />
+    <circle cx="1450" cy="120" r="2.1" />
+  </g>
+  <!-- Colinas al atardecer -->
+  <path d="M0 780 Q360 660 820 750 T1600 710 L1600 1000 L0 1000 Z" fill="#3d1729" opacity="0.65" />
+  <path d="M0 840 Q480 730 980 830 T1600 810 L1600 1000 L0 1000 Z" fill="#220b16" opacity="0.88" />
+</svg>
