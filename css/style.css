@@ -35,25 +35,6 @@
 }
 
 /* ==========================================================================
-   MODO OSCURO AUTOMÁTICO (prefers-color-scheme: dark)
-   ========================================================================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-rosa-claro: #210E17;
-    --color-rosa-medio: #341524;
-    --color-rosa-profundo: #4B1D33;
-    --color-blanco: #26121C;
-    --superficie-tarjeta: rgba(44, 20, 32, 0.88);
-    --superficie-header: rgba(33, 14, 23, 0.78);
-    --color-texto: #FCEEF2;
-    --color-texto-secundario: #D4B2BE;
-    --borde-sutil: rgba(234, 181, 197, 0.18);
-    --sombra-apple: 0 14px 40px rgba(0, 0, 0, 0.45);
-    --sombra-apple-hover: 0 24px 56px rgba(0, 0, 0, 0.65);
-  }
-}
-
-/* ==========================================================================
    RESET Y BASE
    ========================================================================== */
 *,

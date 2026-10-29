@@ -116,7 +116,7 @@ window.CONFIG = {
         destacada: "normal"
       },
       {
-        archivo: "fotos/1fotofav.JPG",
+        archivo: "fotos/1fotofav.jpg",
         descripcion: "Foto que tengo que imprimir!!!!!!!!!!!!!!",
         fecha: "Recuerdo 07",
         destacada: "normal"

@@ -23,29 +23,18 @@
     if (!cfg.colores) return;
     const root = document.documentElement;
     const c = cfg.colores;
-    const modoOscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     if (c.amarilloGirasol) root.style.setProperty("--color-amarillo", c.amarilloGirasol);
     if (c.amarilloLuz) root.style.setProperty("--color-amarillo-luz", c.amarilloLuz);
     if (c.marronSemilla) root.style.setProperty("--color-marron-semilla", c.marronSemilla);
     if (c.verdeHoja) root.style.setProperty("--color-verde-hoja", c.verdeHoja);
-
-    if (!modoOscuro) {
-      if (c.rosaClaro) root.style.setProperty("--color-rosa-claro", c.rosaClaro);
-      if (c.rosaMedio) root.style.setProperty("--color-rosa-medio", c.rosaMedio);
-      if (c.rosaProfundo) root.style.setProperty("--color-rosa-profundo", c.rosaProfundo);
-      if (c.blanco) root.style.setProperty("--color-blanco", c.blanco);
-      if (c.textoPrincipal) root.style.setProperty("--color-texto", c.textoPrincipal);
-      if (c.textoSecundario) {
-        root.style.setProperty("--color-texto-secundario", c.textoSecundario);
-      }
-    } else {
-      root.style.removeProperty("--color-rosa-claro");
-      root.style.removeProperty("--color-rosa-medio");
-      root.style.removeProperty("--color-rosa-profundo");
-      root.style.removeProperty("--color-blanco");
-      root.style.removeProperty("--color-texto");
-      root.style.removeProperty("--color-texto-secundario");
+    if (c.rosaClaro) root.style.setProperty("--color-rosa-claro", c.rosaClaro);
+    if (c.rosaMedio) root.style.setProperty("--color-rosa-medio", c.rosaMedio);
+    if (c.rosaProfundo) root.style.setProperty("--color-rosa-profundo", c.rosaProfundo);
+    if (c.blanco) root.style.setProperty("--color-blanco", c.blanco);
+    if (c.textoPrincipal) root.style.setProperty("--color-texto", c.textoPrincipal);
+    if (c.textoSecundario) {
+      root.style.setProperty("--color-texto-secundario", c.textoSecundario);
     }
   }
 

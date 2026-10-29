@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100">
+  <defs>
+    <linearGradient id="papel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="100%" stop-color="#FDF2F5" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1100" rx="28" fill="url(#papel)" stroke="#EAB5C5" stroke-width="6"/>
+  <g stroke="#F3D5DF" stroke-width="2">
+    <line x1="90" y1="220" x2="810" y2="220" />
+    <line x1="90" y1="290" x2="810" y2="290" />
+    <line x1="90" y1="360" x2="810" y2="360" />
+    <line x1="90" y1="430" x2="810" y2="430" />
+    <line x1="90" y1="500" x2="810" y2="500" />
+    <line x1="90" y1="570" x2="810" y2="570" />
+    <line x1="90" y1="640" x2="810" y2="640" />
+    <line x1="90" y1="710" x2="810" y2="710" />
+    <line x1="90" y1="780" x2="810" y2="780" />
+  </g>
+  <text x="450" y="140" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="38" fill="#6E4856">
+    Nuestra carta escrita a mano 🌻
+  </text>
+  <text x="450" y="490" text-anchor="middle" font-family="-apple-system, Inter, sans-serif" font-weight="600" font-size="24" fill="#2E151E">
+    Guarda la foto de tu carta en la carpeta "fotos/"
+  </text>
+  <text x="450" y="535" text-anchor="middle" font-family="-apple-system, Inter, sans-serif" font-size="20" fill="#6E4856">
+    y pon su nombre en js/config.js → fotoCarta: "fotos/tu-carta.jpg"
+  </text>
+</svg>
