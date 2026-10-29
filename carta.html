@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Evitar indexación en Google y otros buscadores -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="googlebot" content="noindex, nofollow" />
+
+  <title>C &amp; S · Una carta para ti 🌻</title>
+  <meta name="description" content="Una carta y un vídeo especial para ti." />
+
+  <!-- Favicon de girasol en SVG (ruta relativa) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Fuentes Cormorant Garamond e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos principales (ruta relativa) -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ====================================================================
+       CONTENEDOR DE CORAZONES Y POMPOMPURIN CAYENDO
+       ==================================================================== -->
+  <div id="contenedor-petalos" class="contenedor-petalos" aria-hidden="true"></div>
+
+  <!-- ====================================================================
+       HEADER FIJO ESTILO APPLE CON MONOGRAMA "C & S" Y BOTÓN VOLVER
+       ==================================================================== -->
+  <header id="barra-navegacion" class="header-apple" aria-label="Cabecera">
+    <div class="header-contenedor">
+      <a href="index.html" id="header-monograma" class="header-monograma" aria-label="Volver al inicio C & S">
+        <span class="monograma-letra">C</span>
+        <span class="monograma-amp">&amp;</span>
+        <span class="monograma-letra">S</span>
+      </a>
+
+      <nav class="header-acciones" aria-label="Navegación de la carta">
+        <a href="#bloque-foto-carta" class="enlace-header">Foto</a>
+        <a href="#bloque-texto-carta" class="enlace-header">Texto</a>
+        <a href="#bloque-video-carta" class="enlace-header">Vídeo</a>
+        <a href="index.html" class="btn-header-intro">← Volver a fotos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       BOTONES FLOTANTES (CORAZONES + POMPOMPURIN Y MÚSICA)
+       ==================================================================== -->
+  <div class="controles-flotantes" aria-label="Controles de ambiente">
+    <button
+      type="button"
+      id="btn-petalos"
+      class="btn-flotante"
+      aria-pressed="true"
+      aria-label="Activar o desactivar lluvia de corazones y Pompompurin"
+      title="Activar o desactivar corazones y Pompompurin"
+    >
+      <span class="btn-flotante-icono" aria-hidden="true">🍮</span>
+      <span id="texto-btn-petalos" class="btn-flotante-texto">Pompom &amp; ♥</span>
+    </button>
+
+    <button
+      type="button"
+      id="btn-musica"
+      class="btn-flotante btn-musica"
+      aria-pressed="false"
+      aria-label="Reproducir música de fondo"
+      title="Reproducir o pausar música"
+    >
+      <span id="icono-musica" class="btn-flotante-icono" aria-hidden="true">♪</span>
+      <span id="texto-btn-musica" class="btn-flotante-texto">Música</span>
+    </button>
+    <audio id="audio-fondo" preload="none" loop></audio>
+  </div>
+
+  <!-- ====================================================================
+       CONTENIDO PRINCIPAL DE LA PÁGINA DE LA CARTA
+       ==================================================================== -->
+  <main id="contenido-principal" class="pagina-carta-main">
+    <div class="contenedor contenedor-carta">
+      <!-- Encabezado principal -->
+      <div class="encabezado-apple revelar">
+        <div id="hero-monograma" class="monograma-hero" aria-label="C & S">
+          <span class="monograma-letra">C</span>
+          <span class="monograma-amp">&amp;</span>
+          <span class="monograma-letra">S</span>
+        </div>
+        <h1 id="carta-titulo" class="titular-gigante">Una carta para ti.</h1>
+        <p id="carta-subtitulo" class="subtitulo-seccion">
+          olas
+        </p>
+      </div>
+
+      <!-- 1. LA CARTA EN FOTO (MANUSCRITA / IMAGEN) -->
+      <section id="bloque-foto-carta" class="bloque-carta-seccion revelar" aria-labelledby="titulo-foto-carta">
+
+
+        <figure class="carta-foto-marco">
+          <div class="carta-foto-envoltorio" id="abrir-foto-carta" role="button" tabindex="0" aria-label="Ampliar foto de la carta">
+            <img
+              id="img-foto-carta"
+              src="fotos/carta-foto.svg"
+              alt="Fotografía de nuestra carta escrita a mano"
+              class="img-foto-carta"
+            />
+          </div>
+          <figcaption id="pie-foto-carta" class="carta-foto-pie">
+            Toca la foto de la carta para ampliarla a pantalla completa
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- 2. LA CARTA EN TEXTO (CON EFECTO MÁQUINA DE ESCRIBIR) -->
+      <section id="bloque-texto-carta" class="bloque-carta-seccion revelar" aria-label="Carta en texto">
+        <!-- <div class="etiqueta-bloque-carta">
+          <span aria-hidden="true">✍️</span>
+          <h2 class="subtitulo-bloque-carta">Para leer despacio</h2>
+        </div> -->
+
+        <article class="carta-tarjeta" id="carta">
+          <div class="carta-sello-girasol" aria-hidden="true">🌻</div>
+          <p id="carta-saludo" class="carta-saludo">Mi amor,</p>
+
+          <div id="carta-cuerpo" class="carta-cuerpo" aria-live="polite">
+            <!-- Se escribe con efecto máquina de escribir -->
+          </div>
+
+          <div id="carta-cierre" class="carta-cierre oculto-suave">
+            <p id="carta-despedida" class="carta-despedida">Con todo mi amor,</p>
+            <p id="carta-firma" class="carta-firma">Carlos ❤️</p>
+          </div>
+
+          <div class="carta-acciones">
+            <button type="button" id="btn-mostrar-carta" class="btn-enlace-carta">
+              Mostrar carta completa al instante
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- 3. VÍDEO ESPECIAL EN LA PÁGINA DE LA CARTA -->
+      <section id="bloque-video-carta" class="bloque-carta-seccion revelar" aria-labelledby="video-titulo">
+        <div class="encabezado-video">
+          <div class="etiqueta-bloque-carta">
+            <span aria-hidden="true">🎬</span>
+            <h2 id="video-titulo" class="subtitulo-bloque-carta">Nuestro vídeo especial.</h2>
+          </div>
+          <p id="video-subtitulo" class="subtitulo-seccion">
+            Dale al play para revivir este momento juntos.
+          </p>
+        </div>
+
+        <div class="video-tarjeta">
+          <video
+            id="video-carta"
+            class="video-reproductor"
+            controls
+            playsinline
+            preload="metadata"
+            poster="fotos/portada.svg"
+          >
+            <source id="video-source" src="videos/video.mp4" type="video/mp4" />
+            Tu navegador no soporta la reproducción de vídeo.
+          </video>
+
+          <!-- Aviso y selector de vídeo si aún no se ha guardado videos/video.mp4 -->
+          <div id="video-ayuda-subida" class="video-ayuda-subida oculto">
+            <p class="video-ayuda-titulo">🎥 ¿Cómo poner tu vídeo aquí?</p>
+            <p class="video-ayuda-texto">
+              Para dejarlo fijo en la web, guarda tu archivo MP4 en la carpeta
+              <code>videos/video.mp4</code> (o cambia el nombre en <code>js/config.js</code>).
+              También puedes elegir un vídeo desde tu dispositivo ahora mismo para verlo aquí:
+            </p>
+            <label for="input-subir-video" class="boton-pildora boton-amarillo btn-subir-video">
+              Seleccionar vídeo de mi dispositivo
+            </label>
+            <input
+              type="file"
+              id="input-subir-video"
+              accept="video/*"
+              class="sr-only"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Botón para volver a la página de fotos -->
+      <div class="volver-inicio-contenedor revelar">
+        <a href="index.html" class="boton-pildora boton-amarillo">
+          ← Volver a nuestras fotos
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ====================================================================
+       PIE DE PÁGINA MINIMALISTA CON "C & S" Y GIRASOL
+       ==================================================================== -->
+  <footer class="pie-apple">
+    <div class="contenedor pie-interior">
+      <div class="pie-girasol-svg" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="32" height="32">
+          <g transform="translate(32,32)">
+            <g fill="#E5A400">
+              <ellipse rx="5" ry="22" transform="rotate(15)" />
+              <ellipse rx="5" ry="22" transform="rotate(45)" />
+              <ellipse rx="5" ry="22" transform="rotate(75)" />
+              <ellipse rx="5" ry="22" transform="rotate(105)" />
+              <ellipse rx="5" ry="22" transform="rotate(135)" />
+              <ellipse rx="5" ry="22" transform="rotate(165)" />
+            </g>
+            <g fill="#FFC933">
+              <ellipse rx="5" ry="24" transform="rotate(0)" />
+              <ellipse rx="5" ry="24" transform="rotate(30)" />
+              <ellipse rx="5" ry="24" transform="rotate(60)" />
+              <ellipse rx="5" ry="24" transform="rotate(90)" />
+              <ellipse rx="5" ry="24" transform="rotate(120)" />
+              <ellipse rx="5" ry="24" transform="rotate(150)" />
+            </g>
+            <circle r="10" fill="#4A2C0F" />
+          </g>
+        </svg>
+      </div>
+
+      <p id="pie-monograma" class="pie-monograma">
+        <span class="monograma-letra">C</span>
+        <span class="monograma-amp">&amp;</span>
+        <span class="monograma-letra">S</span>
+      </p>
+
+      <p id="pie-texto" class="pie-texto">Hecho con todo mi amor para ti</p>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       LIGHTBOX (PARA AMPLIAR LA FOTO DE LA CARTA A PANTALLA COMPLETA)
+       ==================================================================== -->
+  <div
+    id="lightbox"
+    class="lightbox oculto"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Visor de carta a pantalla completa"
+  >
+    <button
+      type="button"
+      id="lightbox-cerrar"
+      class="lightbox-btn lightbox-cerrar"
+      aria-label="Cerrar visor (Escape)"
+    >
+      &times;
+    </button>
+
+    <figure class="lightbox-contenido">
+      <div class="lightbox-marco-img">
+        <img id="lightbox-img" src="" alt="" />
+      </div>
+      <figcaption class="lightbox-pie">
+        <p id="lightbox-descripcion" class="lightbox-descripcion"></p>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- Scripts (rutas relativas) -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

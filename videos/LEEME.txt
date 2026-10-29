@@ -1,0 +1,9 @@
+Coloca en esta carpeta (/videos) tu vídeo especial en formato MP4 (por ejemplo: video.mp4).
+
+Después, abre el archivo js/config.js y en el bloque "carta" asegúrate de tener:
+  mostrarVideo: true,
+  archivoVideo: "videos/video.mp4",
+
+IMPORTANTE PARA CLOUDFLARE PAGES (PLAN GRATUITO):
+Cada archivo individual no puede superar los 25 MiB (aproximadamente 25 MB).
+Si tu vídeo pesa más de 24 MB, puedes comprimirlo gratis online en https://www.freeconvert.com/es/video-compressor o con HandBrake antes de subirlo.

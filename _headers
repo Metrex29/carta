@@ -10,14 +10,20 @@
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
+/carta.html
+  Cache-Control: public, max-age=0, must-revalidate
+
 /css/*
   Cache-Control: public, max-age=3600, must-revalidate
 
 /js/*
   Cache-Control: public, max-age=3600, must-revalidate
 
-# Caché larga (1 año) para recursos multimedia pesados (fotos y música)
+# Caché larga (1 año) para recursos multimedia (fotos, vídeos y música)
 /fotos/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/videos/*
   Cache-Control: public, max-age=31536000, immutable
 
 /musica/*

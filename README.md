@@ -1,211 +1,170 @@
-# ❤️ Página Web Romántica — Guía Paso a Paso para Principiantes
+# 🌻 Web Romántica "C & S" (Estilo Apple + Girasol) — Guía para Principiantes
 
-¡Bienvenido/a! Esta plantilla es una página web **100 % estática** (solo HTML, CSS y JavaScript puro, sin herramientas complicadas ni comandos de compilación), pensada para que puedas personalizarla fácilmente y subirla gratis a **Cloudflare Pages**.
+Esta plantilla es una página web **100 % estática, romántica y minimalista**, inspirada en el diseño de **apple.com** y en el **girasol** como símbolo principal. Funciona únicamente con HTML, CSS y JavaScript puro (sin frameworks, sin `npm`, sin compilación) para que puedas personalizarla fácilmente y subir la carpeta tal cual a **Cloudflare** en su plan gratuito.
 
 ---
 
-## 📁 Estructura de carpetas del proyecto
-
-La carpeta principal contiene exactamente lo que se publica en internet:
+## 📁 Estructura de carpetas (la raíz es la que se publica)
 
 ```text
 /
-├── index.html        <- Estructura principal de la página (no necesitas tocarlo)
+├── index.html        <- Estructura principal (con girasol SVG animado, header C & S y secciones)
 ├── css/
-│   └── style.css     <- Diseño romántico, animaciones y modo oscuro
+│   └── style.css     <- Diseño estilo Apple, paleta girasol, modo oscuro y animaciones
 ├── js/
-│   ├── config.js     <- ⭐ AQUÍ EDITAS TODO (nombres, fechas, textos, fotos, colores)
-│   └── main.js       <- Lógica del contador, galería, carta y efectos
+│   ├── config.js     <- ⭐ AQUÍ EDITAS TODO (monograma, fecha, textos, fotos, música, clave)
+│   └── main.js       <- Lógica del girasol, contador + próximo mesiversario, galería y carta
 ├── fotos/            <- 📁 Pon aquí tus fotografías (.jpg, .webp, .png o .svg)
 ├── musica/           <- 📁 Pon aquí vuestra canción en formato .mp3 (opcional)
-├── favicon.svg       <- Icono de corazón que se ve en la pestaña del navegador
-├── robots.txt        <- Indica a Google y otros buscadores que NO indexen la web
-├── _headers          <- Cabeceras de seguridad, privacidad (noindex) y caché para Cloudflare Pages
+├── favicon.svg       <- Icono de girasol en SVG para la pestaña del navegador
+├── robots.txt        <- Evita que Google y otros buscadores indexen la web
+├── _headers          <- Cabeceras de seguridad, noindex y caché para Cloudflare
 └── README.md         <- Esta guía paso a paso
 ```
 
 ---
 
-## ✏️ 1. Cómo añadir tus fotos y cambiar los textos (`js/config.js`)
+## ✏️ 1. Cómo añadir fotos y cambiar textos en `js/config.js`
 
-**No necesitas saber programar.** Todo el contenido de la web está concentrado en un único archivo: **`js/config.js`**.
+**No necesitas saber programar.** Todo lo que quieras personalizar está en un único archivo: **`js/config.js`**.
 
-1. Abre el archivo **`js/config.js`** con cualquier editor de texto (el **Bloc de notas** de Windows, **TextEdit** en Mac, o programas gratuitos como **Visual Studio Code**).
-2. Verás que todo está dividido en secciones numeradas con comentarios en español (`portada`, `contador`, `galeria`, `historia`, `razones`, `carta`, `musica`, etc.).
-3. **Regla de oro:** modifica únicamente lo que está **entre comillas** (`"así"`), respetando las comillas de apertura y cierre y las comas (`,`) al final de cada línea.
+1. Abre **`js/config.js`** con cualquier editor de texto (Bloc de notas, TextEdit o Visual Studio Code).
+2. Modifica únicamente los textos que aparecen **entre comillas** (`"así"`), sin borrar las comillas ni las comas (`,`) al final de las líneas.
 
-### 📸 Cómo poner vuestras fotos reales
-1. Copia tus fotos dentro de la carpeta **`fotos/`** (por ejemplo: `playa.jpg`, `aniversario.webp`).
-   - *Consejo:* Usa nombres de archivo sencillos, en minúsculas, sin espacios ni tildes (por ejemplo `viaje-roma.jpg` en lugar de `Foto de Roma (1).JPG`).
-2. Abre `js/config.js` y busca la sección **`5. GALERÍA DE FOTOS`**.
-3. Verás líneas como esta:
+### 🔤 Cambiar el monograma `"C & S"` y vuestros nombres
+En el bloque **`1. IDENTIDAD Y MONOGRAMA`** de `js/config.js`:
+```js
+identidad: {
+  monograma: "C & S",
+  nombre1: "Carlos",
+  nombre2: "Sofía"
+},
+```
+- El valor de `monograma` (`"C & S"`) es independiente de los nombres y es lo que se mostrará siempre en la barra superior estilo Apple, en la portada, en la bienvenida y en el pie de página (con la `C` y la `S` en grande y el `&` en color amarillo girasol).
+
+### 📅 Cambiar la fecha de inicio (Contador y Próximo Mesiversario)
+En el bloque **`5. CONTADOR EN VIVO + PRÓXIMO MESIVERSARIO`**:
+```js
+fechaInicio: "2026-08-29T18:00:00",
+```
+- Pon vuestra fecha real en formato `AAAA-MM-DDTHH:MM:SS` (año-mes-día y hora).
+- La página calculará sola los **meses, días, horas, minutos y segundos** que lleváis juntos, y además actualizará la tarjeta de **"Próximo mesiversario"** con la cuenta atrás automática hasta el siguiente día del mes en que empezasteis.
+
+### 📸 Cómo añadir o cambiar fotos
+1. Copia tus fotos dentro de la carpeta **`fotos/`** (por ejemplo: `cita1.jpg`, `playa.webp`).
+2. En `js/config.js`, ve a **`4. PORTADA PRINCIPAL`** para cambiar la foto grande de portada (`fotoPrincipal: "fotos/tu-foto.jpg"`).
+3. Ve a **`6. GALERÍA DE FOTOS`** para editar las 8 fotos o añadir nuevas copiando un bloque `{ ... }`:
    ```js
-   { archivo: "fotos/foto1.svg", descripcion: "Aquel primer paseo...", fecha: "Mayo 2022" },
-   ```
-4. Cambia `"fotos/foto1.svg"` por `"fotos/playa.jpg"`, y edita la descripción y la fecha:
-   ```js
-   { archivo: "fotos/playa.jpg", descripcion: "Nuestro primer día en la playa", fecha: "Agosto 2023" },
-   ```
-5. **Para añadir más fotos:** simplemente copia una línea entera `{ archivo: ..., descripcion: ..., fecha: ... },` y pégala debajo.
-6. **Importante sobre las rutas:** Escribe siempre **`"fotos/nombre.jpg"`** (ruta relativa, **sin** barra `/` al principio). Así funcionará igual al abrirla en tu ordenador, en `*.pages.dev` y en un dominio propio.
-7. Si una foto está mal escrita o aún no la has copiado, la web mostrará automáticamente una tarjeta romántica de reemplazo en vez de un icono de imagen rota.
-
-### 🎵 Cómo poner vuestra canción de fondo (Opcional)
-1. Copia tu archivo MP3 dentro de la carpeta **`musica/`** y llámalo, por ejemplo, `cancion.mp3`.
-2. En `js/config.js`, revisa el bloque **`9. MÚSICA DE FONDO`**:
-   ```js
-   musica: {
-     activa: true,
-     archivo: "musica/cancion.mp3",
-     tituloCancion: "Nuestra canción",
-     volumen: 0.5
+   {
+     archivo: "fotos/cita1.jpg",
+     descripcion: "Los nervios y las risas de nuestra primera cita",
+     fecha: "Agosto 2026",
+     destacada: "normal" // Puedes usar "grande", "ancha" o "normal"
    },
    ```
-   - Si no quieres que aparezca el botón de música, cambia `activa: true` por `activa: false`.
-   - *(Mientras no pongas tu archivo `cancion.mp3`, al pulsar el botón sonará una suave melodía de caja de música de demostración).*
+4. **Regla importante de rutas:** escribe siempre rutas relativas **sin barra al principio**: `"fotos/cita1.jpg"` (nunca `"/fotos/cita1.jpg"`).
+5. Si alguna foto no existe o tiene el nombre mal escrito, la web mostrará automáticamente un **placeholder elegante con un girasol** en lugar de un icono de imagen rota.
+
+### 🌻 Personalizar la pantalla de bienvenida del girasol y la música
+- En **`3. PANTALLA DE BIENVENIDA`**, puedes cambiar el texto (`"Para ti."`), activar una espera automática (`autoEntrarSegundos: 5`) o activar una clave (`contrasenaActiva: true`).
+- La pantalla de bienvenida se muestra solo la primera vez por sesión (`sessionStorage`), pero en el pie de página tienes el botón *"Ver animación del girasol otra vez"* para repetirla cuando quieras.
+- Para poner música, guarda tu archivo `.mp3` en **`musica/cancion.mp3`** y revisa el bloque **`10. MÚSICA DE FONDO`** en `js/config.js`.
 
 ---
 
-## 🖼️ Consejo importante: Optimiza el peso de tus fotos y respeta los límites
+## 🖼️ 2. Consejo para reducir el peso de las fotos (con Squoosh)
 
-Las fotos hechas con el móvil suelen pesar entre 4 MB y 12 MB cada una. Si subes 20 fotos sin comprimir, la web tardará mucho en cargar en el móvil de tu pareja.
+Las fotos originales del móvil suelen pesar entre 4 MB y 12 MB. Reducirlas hará que la web cargue al instante en el móvil de tu pareja.
 
-### Recomendación ideal para tus fotos:
-- **Tamaño máximo:** **1600 px** de ancho (o alto).
-- **Peso ideal:** **menos de 500 KB** por foto.
-- **Formato recomendado:** **`.webp`** o **`.jpg`** (calidad 80-85 %).
+- **Tamaño ideal:** máximo **1600 px** de ancho.
+- **Peso ideal:** **menos de 500 KB** por cada foto.
+- **Formato recomendado:** **`.webp`** o **`.jpg`**.
 
-### Herramienta gratuita recomendada: [Squoosh.app](https://squoosh.app/)
-1. Entra en **[https://squoosh.app/](https://squoosh.app/)** desde el navegador (es gratuita, de Google, y procesa las fotos en tu propio ordenador sin subirlas a ningún servidor).
-2. Arrastra tu foto.
-3. Abajo a la derecha activa **Resize** y pon `Width: 1600` (deja activado el candado para mantener la proporción).
-4. En **Compress** elige **WebP** o **MozJPEG** con calidad **80 %**.
-5. Descarga la foto optimizada y guárdala en la carpeta `fotos/`.
+### Cómo hacerlo gratis en 1 minuto con [Squoosh.app](https://squoosh.app/):
+1. Abre **[https://squoosh.app/](https://squoosh.app/)** en tu navegador (herramienta gratuita de Google que comprime tus fotos directamente en tu ordenador sin subirlas a internet).
+2. Arrastra tu foto a la página.
+3. En el panel derecho activa **Resize** y pon **Width: `1600`**.
+4. En **Compress** selecciona **WebP** o **MozJPEG** (calidad `80`).
+5. Descarga la imagen y guárdala en la carpeta `fotos/`.
 
-### ⚠️ Límites del plan gratuito de Cloudflare Pages
-El plan gratuito de Cloudflare Pages tiene dos límites técnicos que debes recordar:
-- **Máximo 25 MiB por cada archivo individual:** ningún archivo suelto (ni la canción `.mp3` ni una foto) puede superar los 25 MiB. Un MP3 normal dura 3-4 minutos y pesa entre 4 y 8 MB, así que entra de sobra.
-- **Máximo 20.000 archivos en total** en el proyecto (esta plantilla usa menos de 30 archivos).
+> **⚠️ Límite del plan gratuito de Cloudflare:** cada archivo individual (foto o canción MP3) puede pesar como máximo **25 MiB**, con un máximo de 20.000 archivos en total. Un MP3 normal pesa entre 3 y 8 MB y cada foto optimizada menos de 0,5 MB, así que estarás muy por debajo del límite.
 
 ---
 
-## 💻 2. Cómo probar la web en tu ordenador (en local)
+## 💻 3. Cómo probar la web en tu ordenador (en local)
 
-Antes de subirla a internet puedes ver cómo queda en tu propio ordenador de dos formas:
-
-### Forma rápida (Doble clic)
-1. Entra en la carpeta del proyecto.
-2. Haz **doble clic sobre `index.html`**.
-3. Se abrirá directamente en tu navegador (Chrome, Edge, Safari, Firefox). Cada vez que guardes un cambio en `js/config.js`, pulsa **F5** (o `Ctrl + R`) en el navegador para ver los cambios.
-
-### Forma con servidor local (Opcional)
-- **Si usas Visual Studio Code:** instala la extensión **Live Server** y haz clic en *"Go Live"* abajo a la derecha.
-- **Si tienes Python instalado:** abre una terminal en la carpeta y ejecuta:
-  ```bash
-  python -m http.server 8000
-  ```
-  Luego abre `http://localhost:8000` en tu navegador.
+1. Abre la carpeta del proyecto en tu ordenador.
+2. Haz **doble clic sobre `index.html`**. Se abrirá directamente en tu navegador (Safari, Chrome, Edge o Firefox).
+3. Si quieres volver a ver la pantalla inicial del girasol después de haber pulsado *"Entrar"*, haz clic en el enlace **"Ver animación del girasol otra vez"** abajo del todo en el pie de página.
+4. *(Opcional)* Si usas Visual Studio Code puedes abrirla con la extensión **Live Server**, o con Python ejecutando `python -m http.server 8000` en la carpeta.
 
 ---
 
-## ☁️ 3. Cómo publicarla GRATIS en Cloudflare Pages (2 Opciones)
+## ☁️ 4. Cómo publicarla GRATIS en Cloudflare (Pages o Workers con Static Assets)
 
-Primero, crea una cuenta gratuita en **[https://dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up)** (no necesitas tarjeta de crédito para Cloudflare Pages gratuito).
+Crea una cuenta gratuita en **[https://dash.cloudflare.com/](https://dash.cloudflare.com/)**. Puedes desplegar la carpeta tal cual usando cualquiera de estos métodos gratuitos:
 
-Puedes publicarla de **dos formas**. Si es tu primera vez y no usas GitHub, elige la **Opción A**.
+### Método 1: Subida directa (*Direct Upload*) — El más sencillo (sin GitHub)
+1. En el menú izquierdo de Cloudflare, entra en **Compute (Workers & Pages)** → **Workers & Pages**.
+2. Haz clic en el botón azul **Create** arriba a la derecha.
+3. Selecciona la pestaña **Pages** y en *"Upload your static files"* haz clic en **Get started / Upload assets**.
+4. Escribe el nombre de tu proyecto (por ejemplo `c-y-s-girasol`) y pulsa **Create project**.
+5. Arrastra la carpeta completa del proyecto (asegurándote de que `index.html` esté en la raíz) y pulsa **Deploy site**.
+6. ¡Listo! En unos segundos tendrás tu dirección `https://c-y-s-girasol.pages.dev` funcionando con HTTPS.
 
----
-
-### OPCIÓN A: Subida directa arrastrando la carpeta (*Upload assets*) — ¡La más fácil!
-
-1. Entra en tu panel de Cloudflare: **[https://dash.cloudflare.com/](https://dash.cloudflare.com/)**.
-2. En el menú lateral izquierdo, haz clic en **Compute (Workers & Pages)** → **Workers & Pages**.
-3. Pulsa el botón azul **Create** (Crear) arriba a la derecha.
-4. Selecciona la pestaña **Pages** en la parte superior.
-5. En la sección *"Upload your static files"* (o *"Use direct upload"*), haz clic en **Get started** / **Upload assets**.
-6. **Project name:** escribe el nombre que quieras para tu enlace (por ejemplo: `carlos-y-lucia`). Tu web tendrá la dirección `https://carlos-y-lucia.pages.dev`. Pulsa **Create project**.
-7. Haz clic en **Select from computer** (o arrastra la carpeta completa donde están `index.html`, `css`, `js`, `fotos`, `_headers`, etc.).
-   - *Asegúrate de que en la raíz de la subida se vea directamente `index.html`.*
-8. Pulsa **Deploy site**. En menos de 10 segundos tu página estará publicada y lista con HTTPS gratis.
-
----
-
-### OPCIÓN B: Conectando un repositorio de GitHub (Publicación automática)
-
-Si prefieres guardar tu proyecto en un repositorio **privado** de GitHub para que cada cambio se publique solo:
-
-1. Sube todos los archivos de esta carpeta a un repositorio de tu cuenta de GitHub (puedes poner el repositorio como **Private**).
-2. En el panel de Cloudflare, ve a **Workers & Pages** → **Create** → pestaña **Pages**.
-3. En *"Import an existing Git repository"*, haz clic en **Get started** / **Connect to Git**.
-4. Autoriza tu cuenta de GitHub y selecciona tu repositorio.
-5. En la pantalla **Set up builds and deployments**, configúralo exactamente así:
-   - **Project name:** el nombre que quieras (ej. `nuestra-historia`).
-   - **Production branch:** `main` (o `master`).
-   - **Framework preset:** `None` (Ninguno).
-   - **Build command:** *(déjalo completamente VACÍO)*
-   - **Build output directory:** `/` *(escribe solo una barra `/` o déjalo vacío por defecto en la raíz)*
-6. Haz clic en **Save and Deploy**. ¡Listo!
+### Método 2: Conectando un repositorio de GitHub (Pages o Workers Static Assets)
+1. Sube los archivos de esta carpeta a un repositorio **privado** en tu cuenta de GitHub.
+2. En Cloudflare, ve a **Workers & Pages** → **Create**.
+   - **Si eliges la pestaña Pages → Connect to Git:**
+     - Selecciona tu repositorio de GitHub.
+     - **Framework preset:** `None`
+     - **Build command:** *(déjalo completamente VACÍO)*
+     - **Build output directory:** `/` *(la raíz)*
+     - Pulsa **Save and Deploy**.
+   - **Si eliges Workers con Static Assets:**
+     - Al importar tu repositorio o subir la carpeta con Wrangler (`npx wrangler deploy --assets=.`), indica como directorio de *assets* la raíz `./` sin comando de compilación.
 
 ---
 
-## 🔄 4. Cómo actualizar la web cuando cambies fotos o textos
+## 🔄 5. Cómo actualizar la web cuando cambies fotos o textos
 
-- **Si usaste la Opción A (Subida directa):**
-  1. Edita `js/config.js` o añade fotos nuevas a `fotos/` en tu ordenador.
-  2. Entra en Cloudflare → **Workers & Pages** → haz clic en tu proyecto.
-  3. Pulsa el botón **Create new deployment** arriba a la derecha.
-  4. Vuelve a arrastrar la carpeta del proyecto y pulsa **Save and Deploy**. En segundos estará actualizada.
-
-- **Si usaste la Opción B (GitHub):**
-  1. Haz tus cambios y sube un *commit / push* a la rama principal de GitHub.
-  2. Cloudflare detectará el cambio automáticamente y actualizará la web sola en unos 15 segundos.
+- **Si la subiste arrastrando la carpeta (Subida directa):**
+  1. Haz tus cambios en `js/config.js` o añade fotos nuevas a `fotos/`.
+  2. Entra en Cloudflare → **Workers & Pages** → entra en tu proyecto.
+  3. Pulsa **Create new deployment** arriba a la derecha, vuelve a arrastrar la carpeta y pulsa **Save and Deploy**.
+- **Si conectaste GitHub:**
+  1. Guarda tus cambios y haz *commit / push* a GitHub. Cloudflare publicará la nueva versión automáticamente en unos segundos.
 
 ---
 
-## 🌐 5. Cómo cambiar la dirección `*.pages.dev` o conectar un dominio propio
+## 🌐 6. Cómo cambiar el nombre de la dirección y conectar un dominio propio (Opcional)
 
-### Cambiar el nombre `*.pages.dev`
-El subdominio gratuito (`nombre-del-proyecto.pages.dev`) toma el nombre que le diste al proyecto al crearlo:
-- Si quieres otro nombre gratuito en `.pages.dev`, simplemente ve a **Workers & Pages**, crea un proyecto nuevo con el nuevo nombre (tardas 30 segundos arrastrando la carpeta) y borra el proyecto anterior en **Settings → General → Delete project**.
-
-### Conectar un dominio propio (Opcional, ej. `nuestrahistoria.com`)
-1. Dentro de tu proyecto en Cloudflare Pages, entra en la pestaña **Custom domains**.
-2. Pulsa **Set up a custom domain**.
-3. Escribe tu dominio (ej. `nuestrahistoria.com` o `amor.midominio.com`) y pulsa **Continue**.
-4. Cloudflare configurará el registro DNS y el certificado SSL (candado HTTPS) automáticamente.
+- **Cambiar el nombre `*.pages.dev`:** el nombre gratuito depende del nombre del proyecto en Cloudflare. Si quieres cambiarlo, crea un proyecto nuevo en **Workers & Pages** con el nombre que prefieras, sube la carpeta en 10 segundos y elimina el proyecto antiguo desde **Settings → General → Delete project**.
+- **Conectar un dominio propio (ej. `cys.com`):** entra en tu proyecto en Cloudflare → pestaña **Custom domains** → **Set up a custom domain**, escribe tu dominio y sigue el asistente automático.
 
 ---
 
-## 🔒 6. Privacidad y Contraseña Real con Cloudflare Access (Opcional)
+## 🔒 7. Contraseña y Privacidad Real con Cloudflare Access (Opcional)
 
-### ⚠️ Aviso importante sobre la contraseña de `js/config.js`
-En `js/config.js` tienes la opción `acceso.activo: true` para mostrar una pantalla romántica que pide una clave antes de ver la página.
-**Ten en cuenta que esa pantalla es un detalle estético/ligero y NO es una protección de seguridad real**, porque al ser una web estática cualquiera con conocimientos técnicos podría ver la clave inspeccionando el archivo `js/config.js`.
+### ⚠️ Aviso sobre la contraseña incluida en `js/config.js`
+En `js/config.js` puedes poner `contrasenaActiva: true` para que la pantalla inicial del girasol pida una clave antes de entrar.
+**Importante:** esa opción es una **protección ligera/simbólica y NO es segura**, ya que al ser una página 100 % estática cualquier persona que inspeccione el código fuente del navegador podría ver la clave en `js/config.js`.
 
-### 🛡️ Cómo proteger la web de verdad GRATIS con Cloudflare Access (Zero Trust)
-Si quieres que **nadie en el mundo** pueda abrir la web ni ver las fotos salvo tu pareja y tú (recibiendo un código temporal en vuestro correo electrónico), activa **Cloudflare Access** (es gratis hasta 50 usuarios):
+### 🛡️ Cómo proteger la web de forma 100 % segura y GRATIS con Cloudflare Access (Zero Trust)
+Si quieres que **solo tu pareja y tú** podáis cargar la web recibiendo un código temporal en vuestro correo electrónico (gratis hasta 50 usuarios):
 
-1. En tu proyecto de Cloudflare Pages, ve a la pestaña **Settings** → sección **General**.
-2. Busca **Access Policy** y haz clic en **Enable** (o entra en el menú izquierdo de Cloudflare en **Zero Trust** → **Access** → **Applications** → **Add an application** → **Self-hosted**).
-3. Configura la aplicación:
-   - **Application name:** `Web Romántica`
-   - **Application domain:** selecciona tu dominio `tu-proyecto.pages.dev`.
-4. Crea una regla (**Policy**):
-   - **Policy name:** `Solo nosotros dos`
-   - **Action:** `Allow`
-   - En **Include**, elige **Emails** y escribe el correo electrónico de tu pareja y el tuyo (ej. `pareja@gmail.com`, `tucorreo@gmail.com`).
-5. Guarda los cambios (**Save**).
-6. **¡Listo!** Ahora, antes de que Cloudflare descargue ni una sola foto o línea de código, mostrará una pantalla segura donde tu pareja pondrá su email, recibirá un código de 6 dígitos en su bandeja de entrada y podrá entrar de forma 100 % privada.
+1. Entra en tu proyecto dentro de **Workers & Pages** → pestaña **Settings** → **General**.
+2. En **Access Policy**, pulsa **Enable** / **Manage** (o abre **Zero Trust** en el menú izquierdo de Cloudflare → **Access** → **Applications** → **Add an application** → **Self-hosted**).
+3. Selecciona el dominio de tu web (`tu-proyecto.pages.dev`).
+4. Crea una regla (**Policy**) con acción **Allow** y en **Include** elige **Emails**, añadiendo únicamente el correo electrónico de tu pareja y el tuyo.
+5. Guarda los cambios. Ahora Cloudflare pedirá verificación por email antes de enseñar cualquier foto o texto de la web.
 
 ---
 
-## ✅ 7. Lista de comprobación final antes de compartir el enlace
+## ✅ 8. Lista de comprobación final antes de compartir el enlace
 
-Antes de enviarle el enlace a tu pareja, repasa esta lista:
-
-- [ ] **Textos personalizados:** Has revisado nombres, fecha exacta del contador, hitos, tarjetas de razones y carta final en `js/config.js`.
-- [ ] **Rutas relativas:** Todas las rutas en `js/config.js` están escritas sin `/` inicial (ej. `"fotos/mifoto.jpg"` y `"musica/cancion.mp3"`).
-- [ ] **Peso de las fotos:** Todas las fotos pesan menos de **500 KB** (máximo 1600 px de ancho) y ningún archivo supera el límite de **25 MiB** de Cloudflare Pages.
-- [ ] **Privacidad en buscadores (`noindex`):** El archivo `_headers`, `robots.txt` y la etiqueta `<meta name="robots" content="noindex, nofollow">` en `index.html` están en su sitio para que la web no aparezca en Google.
-- [ ] **Música comprobada:** Si activaste la música, el archivo MP3 funciona al pulsar el botón flotante `♪ Música`.
-- [ ] **Prueba en el móvil:** Has abierto el enlace en tu propio teléfono móvil en modo vertical, has probado a ampliar una foto y deslizar con el dedo (swipe), a voltear las tarjetas de razones y a leer la carta final.
+- [ ] **Monograma y textos listos:** Has comprobado el monograma `"C & S"`, la fecha de inicio (`fechaInicio`), los hitos de los 2 meses, las razones y la carta final en `js/config.js`.
+- [ ] **Rutas relativas:** Todas las rutas en `js/config.js` están escritas sin `/` inicial (ej. `"fotos/foto1.jpg"` y `"musica/cancion.mp3"`).
+- [ ] **Peso de archivos:** Tus fotos están optimizadas (máximo 1600 px, menos de 500 KB cada una) y ningún archivo supera los **25 MiB** del plan gratuito.
+- [ ] **Bloqueo de buscadores (`noindex`):** Están incluidos `robots.txt`, `_headers` (`X-Robots-Tag: noindex, nofollow`) y `<meta name="robots" content="noindex, nofollow">` en `index.html`.
+- [ ] **Prueba en el móvil:** Has abierto la web en el móvil para comprobar la animación inicial del girasol, el menú desplegable superior, el contador + próximo mesiversario, el deslizamiento (*swipe*) de fotos en la galería y la lectura de la carta final.

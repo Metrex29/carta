@@ -1,199 +1,166 @@
 /**
  * ============================================================================
- * ARCHIVO DE CONFIGURACIÓN (js/config.js)
+ * ARCHIVO DE CONFIGURACIÓN PRINCIPAL (js/config.js)
  * ============================================================================
  * ¡Hola! Aquí puedes personalizar TODA la página web sin saber programar.
  *
- * REGLAS BÁSICAS PARA EDITAR ESTE ARCHIVO:
+ * REGLAS BÁSICAS:
  * 1. Cambia únicamente los textos que están entre comillas ("así").
- * 2. No borres las comillas (""), las comas (,) al final de las líneas ni los
+ * 2. No borres las comillas (""), las comas (,) al final de cada línea ni los
  *    corchetes [] o llaves {}.
- * 3. Todas las rutas de fotos y música deben ser relativas, sin barra al
- *    principio: escribe "fotos/mifoto.jpg" (NUNCA "/fotos/mifoto.jpg").
+ * 3. Escribe siempre rutas relativas SIN barra al principio:
+ *    Correcto:   "fotos/mifoto.jpg"
+ *    Incorrecto: "/fotos/mifoto.jpg"
  * ============================================================================
  */
 
 window.CONFIG = {
   // ==========================================================================
-  // 1. COLORES Y ESTILO DE LA PÁGINA
+  // 1. IDENTIDAD Y MONOGRAMA (C & S)
   // ==========================================================================
-  // Puedes cambiar estos códigos de color (formato hexadecimal) si quieres
-  // darle otro tono a la web. El modo oscuro se adapta automáticamente.
+  identidad: {
+    monograma: "Carlos & Sofia"
+  },
+
+  // ==========================================================================
+  // 2. PALETA DE COLORES (FONDO ROSA ROMÁNTICO + GIRASOL)
+  // ==========================================================================
   colores: {
-    primario: "#9e3b5a",       // Rosa burdeos romántico (botones, acentos, iconos)
-    secundario: "#c89666",     // Dorado cálido / champán (detalles, bordes suaves)
-    fondoClaro: "#fdf8f5",     // Crema muy suave para el fondo principal
-    fondoAlterno: "#f7ece8",   // Rosa empolvado suave para alternar secciones
-    fondoTarjeta: "#ffffff",   // Blanco cálido para tarjetas
-    textoPrincipal: "#361d24", // Burdeos muy oscuro (más cálido que el negro puro)
-    textoSecundario: "#6e4f58" // Tono medio para subtítulos y fechas
+    amarilloGirasol: "#F5B700", // Amarillo principal del girasol
+    amarilloLuz: "#FFC933",     // Amarillo luminoso para brillos y acentos
+    marronSemilla: "#4A2C0F",   // Marrón cálido del centro del girasol
+    verdeHoja: "#4F7A2B",       // Verde natural del tallo y hojas
+    rosaClaro: "#FDF2F5",       // Inicio del degradado rosa suave
+    rosaMedio: "#F7D6E0",       // Medio del degradado rosa
+    rosaProfundo: "#EAB5C5",    // Final del degradado rosa romántico
+    blanco: "#FFFFFF",          // Blanco para tarjetas
+    textoPrincipal: "#2E151E",  // Burdeos/negro cálido para textos
+    textoSecundario: "#6E4856"  // Tono secundario suave
   },
 
   // ==========================================================================
-  // 2. PANTALLA DE CONTRASEÑA OPCIONAL (PROTECCIÓN LIGERA)
+  // 3. INTRO OBLIGATORIA DEL GIRASOL
   // ==========================================================================
-  // Cambia "activo" a true si quieres pedir una clave antes de ver la página.
-  // NOTA: Esta clave está en el código y es solo un detalle romántico. Para
-  // privacidad real, usa Cloudflare Access como se explica en el README.md.
-  acceso: {
-    activo: false,
-    contrasena: "1402",
-    titulo: "Un rincón solo para nosotros",
-    subtitulo: "Introduce nuestra clave especial para entrar",
-    pista: "Pista: Una fecha de 4 números que nunca olvidamos (DDMM)",
-    textoBoton: "Entrar a nuestra historia",
-    mensajeError: "Esa no es la clave correcta, inténtalo de nuevo ❤️"
+  // La animación del girasol aparece SIEMPRE al abrir la página como una intro.
+  intro: {
+    duracionSegundos: 3.2,
+    mostrarBotonEntrar: false,
+    textoBoton: "Entrar",
+
+    // Contraseña opcional en la misma intro (cambia a true si quieres activarla)
+    contrasenaActiva: true,
+    contrasena: "25082026",
+    placeholderContrasena: "DIndon",
+    mensajeErrorContrasena: "Clave incorrecta, inténtalo de nuevo 🌻"
   },
 
   // ==========================================================================
-  // 3. PORTADA PRINCIPAL (HERO)
+  // 4. PORTADA ROMÁNTICA (HERO)
   // ==========================================================================
   portada: {
+    //etiquetaSuperior: "Nuestra Historia",
     nombre1: "Carlos",
-    nombre2: "mi negra bella",
     conector: "&",
-    etiquetaSuperior: "Nuestra Historia",
+    nombre2: "mi negra bella",
     frase: "Contigo cualquier instante se convierte en mi recuerdo favorito.",
-    // Pon tu foto de portada en la carpeta /fotos y escribe aquí su nombre:
     fotoFondo: "fotos/portada.svg",
     textoBoton: "Descubrir nuestra historia"
   },
 
   // ==========================================================================
-  // 4. CONTADOR EN VIVO DEL TIEMPO JUNTOS
+  // 5. NUESTROS MOMENTOS (GALERÍA DE FOTOS)
   // ==========================================================================
-  // Escribe la fecha y hora en formato: "AAAA-MM-DDTHH:MM:SS"
-  // Ejemplo: "2021-07-24T19:30:00" (24 de julio de 2021 a las 19:30)
-  contador: {
-    titulo: "Tiempo caminando juntos",
-    subtitulo: "Cada segundo a tu lado cuenta desde aquel primer día",
-    fechaInicio: "2022-05-14T18:30:00",
-    fraseFinal: "…y este contador nunca dejará de sumar momentos contigo."
-  },
-
-  // ==========================================================================
-  // 5. GALERÍA DE FOTOS
-  // ==========================================================================
-  // CÓMO AÑADIR UNA FOTO NUEVA:
-  // 1. Copia tu foto (en .jpg o .webp) dentro de la carpeta "fotos".
-  // 2. Copia uno de los bloques { ... }, pégalo debajo y cambia el nombre del
-  //    archivo, la descripción y la fecha.
+  // CÓMO AÑADIR UNA FOTO:
+  // 1. Copia tu foto (.jpg o .webp) dentro de la carpeta /fotos.
+  // 2. Añade o edita una línea aquí abajo con su ruta relativa ("fotos/nombre.jpg").
+  // 3. Opcional: puedes añadir posicion: "abajo" (o "arriba" / "centro") para ajustar el encuadre.
   galeria: {
-    titulo: "Nuestros Momentos",
-    subtitulo: "Toca cualquier fotografía para verla en grande",
+    titulo: "Nuestros momentos.",
+    subtitulo: "Toca cualquier fotografía para verla a pantalla completa.",
     fotos: [
-      { archivo: "fotos/foto1.svg", descripcion: "Aquel primer paseo donde el tiempo se detuvo", fecha: "Mayo 2022" },
-      { archivo: "fotos/foto2.svg", descripcion: "Viendo caer el sol juntos sin mirar el reloj", fecha: "Agosto 2022" },
-      { archivo: "fotos/foto3.svg", descripcion: "Tu risa: mi sonido favorito en el mundo", fecha: "Noviembre 2022" },
-      { archivo: "fotos/foto4.svg", descripcion: "Una noche mágica pidiendo deseos bajo las estrellas", fecha: "Febrero 2023" },
-      { archivo: "fotos/foto5.svg", descripcion: "Perdernos de viaje y encontrarnos en cada rincón", fecha: "Julio 2023" },
-      { archivo: "fotos/foto6.svg", descripcion: "Los pequeños momentos cotidianos que lo son todo", fecha: "Octubre 2023" },
-      { archivo: "fotos/foto7.svg", descripcion: "Tardes de café, charlas infinitas y planes de futuro", fecha: "Enero 2024" },
-      { archivo: "fotos/foto8.svg", descripcion: "Por todas las aventuras que aún nos esperan", fecha: "Hoy y siempre" }
-    ]
-  },
-
-  // ==========================================================================
-  // 6. LÍNEA DE TIEMPO DE NUESTRA HISTORIA
-  // ==========================================================================
-  // La propiedad "foto" es opcional: si no quieres foto en un hito, déjala
-  // vacía así: foto: ""
-  historia: {
-    titulo: "Nuestra Historia",
-    subtitulo: "Los capítulos más bonitos del camino que hemos recorrido",
-    hitos: [
       {
-        fecha: "14 de mayo de 2022",
-        titulo: "El día en que todo empezó",
-        texto: "Entre nervios y sonrisas descubrimos que hablar contigo era como volver a casa. Aquel día supimos que algo especial acababa de empezar.",
-        foto: "fotos/foto1.svg"
+        archivo: "fotos/fotoNuestra1.jpg",
+        descripcion: "Fotos borrachos numero 10101010101010",
+        fecha: "portada de album",
+        destacada: "grande"
       },
       {
-        fecha: "Verano de 2022",
-        titulo: "Nuestro primer viaje juntos",
-        texto: "Maletas improvisadas, canciones a todo volumen en el camino y la certeza de que mi lugar favorito siempre es donde estés tú.",
-        foto: "fotos/foto2.svg"
+        archivo: "fotos/steachhh.JPG",
+        descripcion: "steachhhhhhhhhhh",
+        fecha: "Recuerdo 02",
+        destacada: "normal"
       },
       {
-        fecha: "14 de mayo de 2023",
-        titulo: "Nuestra primera vuelta al sol",
-        texto: "Un año entero de complicidad, de apoyarnos en todo y de celebrar cada pequeña alegría como si fuera única.",
-        foto: "fotos/foto4.svg"
+        archivo: "fotos/precarrousel.JPG",
+        descripcion: "fondo de pantalla",
+        fecha: "Recuerdo 03",
+        destacada: "normal"
       },
       {
-        fecha: "Otoño de 2024",
-        titulo: "Construyendo nuestros sueños",
-        texto: "Pasito a pasito, sumando recuerdos, superando retos de la mano y soñando despiertos con todo lo que viene.",
-        foto: "fotos/foto6.svg"
+        archivo: "fotos/mirada.JPG",
+        descripcion: "Noches inolvidables",
+        fecha: "mirada intensa",
+        destacada: "ancha",
+        posicion: "abajo"
       },
       {
-        fecha: "Hoy",
-        titulo: "Lo mejor aún está por escribirse",
-        texto: "Gracias por cada abrazo, por tu paciencia, tu ternura y tu forma de iluminar mis días. Seguimos sumando páginas juntos.",
-        foto: ""
+        archivo: "fotos/soficansada.JPG",
+        descripcion: "hasta la polla de mi :(((((",
+        fecha: "Recuerdo 05",
+        destacada: "normal"
+      },
+      {
+        archivo: "fotos/muyBorrachos.JPG",
+        descripcion: "la noche esa toppppppp",
+        fecha: "Recuerdo 06",
+        destacada: "normal"
+      },
+      {
+        archivo: "fotos/1fotofav.JPG",
+        descripcion: "Foto que tengo que imprimir!!!!!!!!!!!!!!",
+        fecha: "Recuerdo 07",
+        destacada: "normal"
+      },
+      {
+        archivo: "fotos/2fotofav.JPG",
+        descripcion: "muchas fotos favoritas contigo",
+        fecha: "Recuerdo 08",
+        destacada: "grande"
       }
     ]
   },
 
   // ==========================================================================
-  // 7. RAZONES POR LAS QUE TE QUIERO (TARJETAS INTERACTIVAS)
+  // 6. PÁGINA DE LA CARTA (carta.html: FOTO DE LA CARTA + TEXTO + VÍDEO)
   // ==========================================================================
-  // Al hacer clic o tocar una tarjeta, se voltea para revelar el mensaje.
-  razones: {
-    titulo: "Razones por las que te quiero",
-    subtitulo: "Toca cada tarjeta para descubrir lo que guardo en el corazón",
-    lista: [
-      {
-        tituloFrente: "Tu sonrisa",
-        textoReverso: "Porque tienes el superpoder de iluminar hasta el día más gris con solo mirarme y sonreír."
-      },
-      {
-        tituloFrente: "Nuestra paz",
-        textoReverso: "Porque abrazarte es el único lugar del mundo donde todo el ruido se apaga y me siento en casa."
-      },
-      {
-        tituloFrente: "Tu forma de cuidar",
-        textoReverso: "Por cada detalle pequeño, por cómo escuchas y por hacerme sentir querido en cada gesto."
-      },
-      {
-        tituloFrente: "Nuestras risas",
-        textoReverso: "Porque nadie entiende mis bromas como tú y juntos somos capaces de reírnos hasta que nos duele la tripa."
-      },
-      {
-        tituloFrente: "Cómo me inspiras",
-        textoReverso: "Porque admirarte me impulsa cada día a ser mejor persona y a luchar por nuestros sueños."
-      },
-      {
-        tituloFrente: "Nuestro equipo",
-        textoReverso: "Porque en los días fáciles disfrutamos al máximo y en los difíciles nos damos la mano aún más fuerte."
-      }
-    ]
-  },
-
-  // ==========================================================================
-  // 8. CARTA FINAL (CON EFECTO MÁQUINA DE ESCRIBIR)
-  // ==========================================================================
-  // Cada elemento dentro de "parrafos" es un párrafo separado de la carta.
   carta: {
-    titulo: "Una carta para ti",
-    subtitulo: "Palabras escritas despacio, como me gusta vivir la vida contigo",
+    titulo: "la real!!!",
+
+    // A) LA CARTA EN FOTO (Pon la foto de tu carta en /fotos y escribe aquí su ruta)
+    mostrarFotoCarta: true,
+    fotoCarta: "fotos/carta-foto.svg",
+    pieFotoCarta: "suavesuave",
+
+    // B) LA CARTA EN TEXTO (Con efecto máquina de escribir)
     saludo: "Mi amor,",
     parrafos: [
-      "A veces las palabras se quedan cortas para explicar todo lo que significas para mí, así que quise crear este pequeño rincón en el mundo solo para nosotros, donde guardar nuestros recuerdos más bonitos.",
-      "Gracias por aparecer en mi vida y llenarla de calma, de ilusión y de esa complicidad tan nuestra que hace que todo sea más fácil. A tu lado he aprendido que el amor verdadero está en los detalles de cada día: en un mensaje inesperado, en una mirada cómplice y en las ganas de cuidarnos siempre.",
-      "No importa cuántos años, meses o segundos marque el reloj de ahí arriba; si volviera a empezar desde cero, te volvería a elegir a ti en cada una de mis vidas."
+      "a hacer que me falta xd "
     ],
-    despedida: "Con todo mi corazón,",
-    firma: "Carlos ❤️"
+    despedida: "Con todo mi amor,",
+    firma: "Carlos Picón",
+
+    // C) VÍDEO ESPECIAL EN LA PÁGINA DE LA CARTA
+    // Pon tu vídeo (.mp4, menos de 25 MB) dentro de la carpeta /videos y escribe aquí su ruta:
+    mostrarVideo: false,
+    tituloVideo: "Nuestro vídeo especial.",
+    subtituloVideo: "Dale al play para revivir este momento juntos.",
+    archivoVideo: "videos/video.mp4",
+    portadaVideo: "fotos/portada.svg"
   },
 
   // ==========================================================================
-  // 9. MÚSICA DE FONDO (OPCIONAL)
+  // 7. MÚSICA DE FONDO (OPCIONAL)
   // ==========================================================================
-  // Pon tu archivo MP3 en la carpeta /musica y escribe aquí su ruta.
-  // Si no quieres botón de música, cambia "activa" a false.
-  // NOTA: Si aún no has puesto el archivo MP3, el botón reproducirá una suave
-  // melodía de caja de música de demostración hasta que subas tu canción.
   musica: {
     activa: true,
     archivo: "musica/cancion.mp3",
@@ -202,20 +169,17 @@ window.CONFIG = {
   },
 
   // ==========================================================================
-  // 10. EFECTO DE CORAZONES O PÉTALOS CAYENDO
+  // 8. LLUVIA DE CORAZONES Y CARITAS DE POMPOMPURIN
   // ==========================================================================
-  // "tipo" puede ser "corazones" o "petalos".
-  efectos: {
+  petalos: {
     activarAlInicio: true,
-    tipo: "corazones",
     cantidad: 18
   },
 
   // ==========================================================================
-  // 11. PIE DE PÁGINA
+  // 9. PIE DE PÁGINA
   // ==========================================================================
   pie: {
-    texto: "Hecho con todo mi amor para ti",
-    notaSecundaria: "Nuestro rincón privado para siempre"
+    texto: "Hecho con todo mi amor para ti"
   }
 };

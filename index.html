@@ -4,114 +4,247 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Evitar que buscadores (Google, Bing, etc.) indexen la página -->
+  <!-- Evitar indexación en Google y otros buscadores -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
   <meta name="googlebot" content="noindex, nofollow" />
 
-  <title>Nuestra Historia ❤️</title>
-  <meta name="description" content="Un rincón especial creado con amor para guardar nuestros mejores momentos juntos." />
+  <title>C &amp; S · Nuestros momentos 🌻</title>
+  <meta name="description" content="C & S · Nuestros momentos." />
 
-  <!-- Etiquetas Open Graph y Twitter para que el enlace se vea bonito al compartir por WhatsApp / Telegram -->
+  <!-- Open Graph y Twitter Cards para compartir el enlace -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Nuestra Historia ❤️" id="og-title" />
-  <meta property="og:description" content="Contigo cualquier instante se convierte en mi recuerdo favorito." id="og-description" />
+  <meta property="og:title" content="C &amp; S · Nuestros momentos 🌻" id="og-title" />
+  <meta property="og:description" content="Nuestros momentos." id="og-description" />
   <meta property="og:image" content="fotos/portada.svg" id="og-image" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nuestra Historia ❤️" id="tw-title" />
-  <meta name="twitter:description" content="Contigo cualquier instante se convierte en mi recuerdo favorito." id="tw-description" />
+  <meta name="twitter:title" content="C &amp; S · Nuestros momentos 🌻" id="tw-title" />
+  <meta name="twitter:description" content="Nuestros momentos." id="tw-description" />
   <meta name="twitter:image" content="fotos/portada.svg" id="tw-image" />
 
-  <!-- Favicon de corazón en SVG (ruta relativa) -->
+  <!-- Favicon de girasol en SVG (ruta relativa) -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-  <!-- Tipografías de Google Fonts (con fallback en CSS si no hay conexión) -->
+  <!-- Fuentes Cormorant Garamond (para la portada romántica) e Inter (estilo Apple) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Hoja de estilos principal (ruta relativa) -->
+  <!-- Estilos principales (ruta relativa) -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <!-- Enlace de accesibilidad para saltar al contenido principal con teclado -->
-  <a href="#contenido-principal" class="skip-link">Saltar al contenido</a>
-
+<body class="intro-activa">
   <!-- ====================================================================
-       PANTALLA DE ENTRADA CON CONTRASEÑA OPCIONAL (Se activa en config.js)
+       INTRO OBLIGATORIA A PANTALLA COMPLETA CON GIRASOL SVG ANIMADO
        ==================================================================== -->
-  <div id="pantalla-acceso" class="pantalla-acceso oculto" role="dialog" aria-modal="true" aria-labelledby="acceso-titulo">
-    <div class="acceso-tarjeta">
-      <div class="acceso-icono" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="42" height="42" fill="currentColor">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  <div
+    id="pantalla-bienvenida"
+    class="pantalla-bienvenida"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Introducción C & S"
+  >
+    <div class="bienvenida-interior">
+      <!-- Ilustración SVG de girasol con apertura de pétalos, rotación lenta, tallo y hojas -->
+      <div class="girasol-escena" aria-hidden="true">
+        <svg
+          class="girasol-svg"
+          viewBox="0 0 320 380"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <radialGradient id="gradPetaloTrasero" cx="50%" cy="75%" r="75%">
+              <stop offset="0%" stop-color="#D99B00" />
+              <stop offset="100%" stop-color="#F5B700" />
+            </radialGradient>
+            <radialGradient id="gradPetaloDelantero" cx="50%" cy="70%" r="75%">
+              <stop offset="0%" stop-color="#F5B700" />
+              <stop offset="65%" stop-color="#FFC933" />
+              <stop offset="100%" stop-color="#FFE07D" />
+            </radialGradient>
+            <radialGradient id="gradCentroSemillas" cx="40%" cy="38%" r="65%">
+              <stop offset="0%" stop-color="#6B421B" />
+              <stop offset="65%" stop-color="#4A2C0F" />
+              <stop offset="100%" stop-color="#2E1A07" />
+            </radialGradient>
+            <radialGradient id="gradBrilloCentro" cx="35%" cy="30%" r="50%">
+              <stop offset="0%" stop-color="#FFC933" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="#4A2C0F" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <!-- Tallo y hojas verdes -->
+          <g class="girasol-tallo-grupo">
+            <path
+              class="girasol-tallo"
+              d="M160 190 Q155 275 162 365"
+              fill="none"
+              stroke="#4F7A2B"
+              stroke-width="10"
+              stroke-linecap="round"
+            />
+            <!-- Hoja izquierda -->
+            <path
+              class="girasol-hoja girasol-hoja-izq"
+              d="M158 275 C115 255 82 275 76 306 C108 318 142 302 158 282 Z"
+              fill="#4F7A2B"
+            />
+            <path
+              class="girasol-hoja girasol-hoja-izq"
+              d="M156 279 Q116 286 84 302"
+              fill="none"
+              stroke="#689B3D"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <!-- Hoja derecha -->
+            <path
+              class="girasol-hoja girasol-hoja-der"
+              d="M161 248 C204 228 238 246 244 277 C212 290 178 275 161 255 Z"
+              fill="#5B8C33"
+            />
+            <path
+              class="girasol-hoja girasol-hoja-der"
+              d="M163 252 Q202 258 235 274"
+              fill="none"
+              stroke="#76AD47"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </g>
+
+          <!-- Cabeza de la flor que gira suavemente -->
+          <g transform="translate(160, 155)">
+            <g class="girasol-cabeza-giro">
+              <!-- 1ª Capa (trasera): 12 pétalos desplazados 15 grados -->
+              <g class="capa-petalos-trasera" fill="url(#gradPetaloTrasero)">
+                <g transform="rotate(15)"><path class="petalo-anim" style="--i:1" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(45)"><path class="petalo-anim" style="--i:2" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(75)"><path class="petalo-anim" style="--i:3" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(105)"><path class="petalo-anim" style="--i:4" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(135)"><path class="petalo-anim" style="--i:5" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(165)"><path class="petalo-anim" style="--i:6" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(195)"><path class="petalo-anim" style="--i:7" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(225)"><path class="petalo-anim" style="--i:8" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(255)"><path class="petalo-anim" style="--i:9" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(285)"><path class="petalo-anim" style="--i:10" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(315)"><path class="petalo-anim" style="--i:11" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+                <g transform="rotate(345)"><path class="petalo-anim" style="--i:12" d="M0,-32 C12,-68 14,-108 0,-128 C-14,-108 -12,-68 0,-32 Z" /></g>
+              </g>
+
+              <!-- 2ª Capa (delantera): 12 pétalos principales -->
+              <g class="capa-petalos-delantera" fill="url(#gradPetaloDelantero)">
+                <g transform="rotate(0)"><path class="petalo-anim" style="--i:13" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(30)"><path class="petalo-anim" style="--i:14" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(60)"><path class="petalo-anim" style="--i:15" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(90)"><path class="petalo-anim" style="--i:16" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(120)"><path class="petalo-anim" style="--i:17" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(150)"><path class="petalo-anim" style="--i:18" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(180)"><path class="petalo-anim" style="--i:19" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(210)"><path class="petalo-anim" style="--i:20" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(240)"><path class="petalo-anim" style="--i:21" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(270)"><path class="petalo-anim" style="--i:22" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(300)"><path class="petalo-anim" style="--i:23" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+                <g transform="rotate(330)"><path class="petalo-anim" style="--i:24" d="M0,-30 C14,-66 16,-106 0,-126 C-16,-106 -14,-66 0,-30 Z" /></g>
+              </g>
+
+              <!-- Centro marrón con textura de semillas -->
+              <circle r="46" fill="url(#gradCentroSemillas)" stroke="#3B220B" stroke-width="2" />
+              <circle r="39" fill="none" stroke="#805327" stroke-width="2.2" stroke-dasharray="2.5 5.5" />
+              <circle r="32" fill="none" stroke="#9E6A34" stroke-width="2.2" stroke-dasharray="2.5 5" />
+              <circle r="25" fill="none" stroke="#805327" stroke-width="2" stroke-dasharray="2 4.5" />
+              <circle r="18" fill="none" stroke="#B57E42" stroke-width="2" stroke-dasharray="2 4" />
+              <circle r="11" fill="none" stroke="#805327" stroke-width="1.8" stroke-dasharray="1.8 3.5" />
+              <circle r="4.5" fill="none" stroke="#F5B700" stroke-width="1.6" stroke-dasharray="1.5 3" opacity="0.7" />
+              <!-- Pequeño brillo pulsante en el centro -->
+              <circle class="girasol-centro-brillo" r="44" fill="url(#gradBrilloCentro)" />
+            </g>
+          </g>
         </svg>
       </div>
-      <h1 id="acceso-titulo" class="acceso-titulo">Un rincón solo para nosotros</h1>
-      <p id="acceso-subtitulo" class="acceso-subtitulo">Introduce nuestra clave especial para entrar</p>
-      <form id="form-acceso" class="acceso-form" autocomplete="off">
-        <label for="input-acceso" class="sr-only">Clave secreta</label>
-        <input
-          type="password"
-          id="input-acceso"
-          class="acceso-input"
-          placeholder="Escribe la clave aquí..."
-          required
-        />
-        <button type="submit" id="btn-acceso" class="boton-primario">
-          Entrar a nuestra historia
-        </button>
-      </form>
-      <p id="acceso-pista" class="acceso-pista"></p>
-      <p id="acceso-error" class="acceso-error oculto" role="alert"></p>
+
+      <!-- Monograma C & S y botón/contraseña opcional -->
+      <div class="bienvenida-textos">
+        <p id="bienvenida-monograma" class="monograma-insignia">
+          <span class="monograma-letra">C</span>
+          <span class="monograma-amp">&amp;</span>
+          <span class="monograma-letra">S</span>
+        </p>
+
+        <form id="form-bienvenida" class="bienvenida-form" autocomplete="off">
+          <div id="bloque-contrasena" class="bloque-contrasena oculto">
+            <label for="input-contrasena" class="sr-only">Contraseña</label>
+            <input
+              type="password"
+              id="input-contrasena"
+              class="input-pildora"
+              placeholder="Escribe nuestra clave..."
+            />
+            <p id="error-contrasena" class="bienvenida-error oculto" role="alert"></p>
+          </div>
+
+          <button type="submit" id="btn-entrar-bienvenida" class="boton-pildora boton-amarillo">
+            Entrar
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 
   <!-- ====================================================================
-       CONTENEDOR DE CORAZONES / PÉTALOS CAYENDO
+       CONTENEDOR DE CORAZONES Y POMPOMPURIN CAYENDO
        ==================================================================== -->
-  <div id="contenedor-efectos" class="contenedor-efectos" aria-hidden="true"></div>
+  <div id="contenedor-petalos" class="contenedor-petalos" aria-hidden="true"></div>
 
   <!-- ====================================================================
-       BARRA DE NAVEGACIÓN SUPERIOR SUAVE
+       HEADER FIJO ESTILO APPLE CON MONOGRAMA "C & S"
        ==================================================================== -->
-  <header id="barra-navegacion" class="barra-navegacion" aria-label="Navegación principal">
-    <div class="nav-contenedor">
-      <a href="#portada" id="nav-marca" class="nav-marca">C &amp; L</a>
-      <nav class="nav-enlaces">
-        <a href="#contador">Tiempo</a>
-        <a href="#galeria">Fotos</a>
-        <a href="#historia">Historia</a>
-        <a href="#razones">Razones</a>
-        <a href="#carta">Carta</a>
+  <header id="barra-navegacion" class="header-apple" aria-label="Cabecera">
+    <div class="header-contenedor">
+      <a href="#portada" id="header-monograma" class="header-monograma" aria-label="C & S">
+        <span class="monograma-letra">C</span>
+        <span class="monograma-amp">&amp;</span>
+        <span class="monograma-letra">S</span>
+      </a>
+
+      <nav class="header-acciones" aria-label="Navegación rápida">
+        <a href="#portada" class="enlace-header">Portada</a>
+        <a href="#galeria" class="enlace-header">Momentos</a>
+        <a href="carta.html" class="enlace-header">Carta ✉</a>
+        <button
+          type="button"
+          id="btn-repetir-intro-header"
+          class="btn-header-intro"
+          aria-label="Ver intro del girasol"
+        >
+          🌻 Intro
+        </button>
       </nav>
     </div>
   </header>
 
   <!-- ====================================================================
-       BOTONES FLOTANTES (MÚSICA Y EFECTO DE CORAZONES/PÉTALOS)
+       BOTONES FLOTANTES (CORAZONES + POMPOMPURIN Y MÚSICA)
        ==================================================================== -->
   <div class="controles-flotantes" aria-label="Controles de ambiente">
-    <!-- Botón para activar/desactivar corazones o pétalos -->
     <button
       type="button"
-      id="btn-efectos"
+      id="btn-petalos"
       class="btn-flotante"
       aria-pressed="true"
-      aria-label="Desactivar animación de corazones"
-      title="Activar o desactivar lluvia de corazones"
+      aria-label="Activar o desactivar lluvia de corazones y Pompompurin"
+      title="Activar o desactivar corazones y Pompompurin"
     >
-      <span class="btn-flotante-icono" aria-hidden="true">✨</span>
-      <span id="texto-btn-efectos" class="btn-flotante-texto">Efecto</span>
+      <span class="btn-flotante-icono" aria-hidden="true">🍮</span>
+      <span id="texto-btn-petalos" class="btn-flotante-texto">Pompom &amp; ♥</span>
     </button>
 
-    <!-- Reproductor de música (desactivado hasta que el usuario pulse) -->
     <button
       type="button"
       id="btn-musica"
       class="btn-flotante btn-musica"
       aria-pressed="false"
       aria-label="Reproducir música de fondo"
-      title="Reproducir o pausar nuestra canción"
+      title="Reproducir o pausar música"
     >
       <span id="icono-musica" class="btn-flotante-icono" aria-hidden="true">♪</span>
       <span id="texto-btn-musica" class="btn-flotante-texto">Música</span>
@@ -120,20 +253,20 @@
   </div>
 
   <!-- ====================================================================
-       CONTENIDO PRINCIPAL
+       CONTENIDO PRINCIPAL: PORTADA + NUESTROS MOMENTOS + CARTA FINAL
        ==================================================================== -->
   <main id="contenido-principal">
-    <!-- 1. PORTADA (HERO) -->
+    <!-- 1. PORTADA ROMÁNTICA (HERO) -->
     <section id="portada" class="hero" aria-label="Portada">
       <div id="hero-fondo" class="hero-fondo" role="img" aria-label="Imagen de fondo de portada"></div>
       <div class="hero-velo"></div>
 
-      <div class="hero-contenido animar-entrada">
+      <div class="hero-contenido">
         <span id="hero-etiqueta" class="hero-etiqueta">Nuestra Historia</span>
         <h1 class="hero-nombres">
           <span id="hero-nombre1">Carlos</span>
           <span id="hero-conector" class="hero-conector">&amp;</span>
-          <span id="hero-nombre2">Lucía</span>
+          <span id="hero-nombre2" class="hero-nombre-linea2">mi negra bella</span>
         </h1>
         <div class="hero-separador" aria-hidden="true">
           <span></span>
@@ -145,159 +278,84 @@
         <p id="hero-frase" class="hero-frase">
           Contigo cualquier instante se convierte en mi recuerdo favorito.
         </p>
-        <a href="#contador" id="hero-boton" class="boton-hero">
+        <a href="#galeria" id="hero-boton" class="boton-hero-rosa">
           Descubrir nuestra historia
         </a>
       </div>
 
-      <a href="#contador" class="hero-flecha" aria-label="Bajar a la siguiente sección">
+      <a href="#galeria" class="hero-flecha" aria-label="Bajar a nuestros momentos">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M7 10l5 5 5-5"/>
         </svg>
       </a>
     </section>
 
-    <!-- 2. CONTADOR EN VIVO DEL TIEMPO JUNTOS -->
-    <section id="contador" class="seccion seccion-clara revelar" aria-labelledby="contador-titulo">
+    <!-- 2. GALERÍA DE FOTOS: NUESTROS MOMENTOS -->
+    <section id="galeria" class="seccion-momentos" aria-labelledby="galeria-titulo">
       <div class="contenedor">
-        <div class="encabezado-seccion">
-          <span class="insignia-seccion" aria-hidden="true">♥</span>
-          <h2 id="contador-titulo" class="titulo-seccion">Tiempo caminando juntos</h2>
-          <p id="contador-subtitulo" class="subtitulo-seccion">
-            Cada segundo a tu lado cuenta desde aquel primer día
-          </p>
-        </div>
-
-        <div class="contador-grid" role="timer" aria-live="off" aria-label="Tiempo transcurrido juntos">
-          <div class="contador-caja">
-            <span id="cnt-anios" class="contador-numero">0</span>
-            <span class="contador-etiqueta">Años</span>
+        <div class="encabezado-apple revelar">
+          <div id="hero-monograma" class="monograma-hero" aria-label="C & S">
+            <span class="monograma-letra">C</span>
+            <span class="monograma-amp">&amp;</span>
+            <span class="monograma-letra">S</span>
           </div>
-          <div class="contador-caja">
-            <span id="cnt-meses" class="contador-numero">0</span>
-            <span class="contador-etiqueta">Meses</span>
-          </div>
-          <div class="contador-caja">
-            <span id="cnt-dias" class="contador-numero">0</span>
-            <span class="contador-etiqueta">Días</span>
-          </div>
-          <div class="contador-caja">
-            <span id="cnt-horas" class="contador-numero">00</span>
-            <span class="contador-etiqueta">Horas</span>
-          </div>
-          <div class="contador-caja">
-            <span id="cnt-minutos" class="contador-numero">00</span>
-            <span class="contador-etiqueta">Minutos</span>
-          </div>
-          <div class="contador-caja contador-caja-acento">
-            <span id="cnt-segundos" class="contador-numero">00</span>
-            <span class="contador-etiqueta">Segundos</span>
-          </div>
-        </div>
-
-        <p id="contador-frase-final" class="contador-frase-final">
-          …y este contador nunca dejará de sumar momentos contigo.
-        </p>
-      </div>
-    </section>
-
-    <!-- 3. GALERÍA DE FOTOS (MASONRY + LIGHTBOX) -->
-    <section id="galeria" class="seccion seccion-alterna revelar" aria-labelledby="galeria-titulo">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <span class="insignia-seccion" aria-hidden="true">✦</span>
-          <h2 id="galeria-titulo" class="titulo-seccion">Nuestros Momentos</h2>
+          <h2 id="galeria-titulo" class="titular-gigante">Nuestros momentos.</h2>
           <p id="galeria-subtitulo" class="subtitulo-seccion">
-            Toca cualquier fotografía para verla en grande
+            Toca cualquier fotografía para verla a pantalla completa.
           </p>
         </div>
 
-        <div id="galeria-masonry" class="galeria-masonry" role="list">
-          <!-- Se rellena dinámicamente desde js/config.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. LÍNEA DE TIEMPO DE NUESTRA HISTORIA -->
-    <section id="historia" class="seccion seccion-clara revelar" aria-labelledby="historia-titulo">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <span class="insignia-seccion" aria-hidden="true">♥</span>
-          <h2 id="historia-titulo" class="titulo-seccion">Nuestra Historia</h2>
-          <p id="historia-subtitulo" class="subtitulo-seccion">
-            Los capítulos más bonitos del camino que hemos recorrido
-          </p>
+        <div id="galeria-bento" class="galeria-bento" role="list">
+          <!-- Se genera automáticamente desde js/config.js -->
         </div>
 
-        <div id="linea-tiempo" class="linea-tiempo">
-          <!-- Se rellena dinámicamente desde js/config.js -->
+        <!-- Enlace destacado para ir a la página de la carta y el vídeo -->
+        <div class="cta-ir-a-carta revelar">
+          <p class="cta-carta-texto">Tengo algo más guardado para ti…</p>
+          <a href="carta.html" class="boton-pildora boton-amarillo">
+            Abrir mi carta y nuestro vídeo ✉
+          </a>
         </div>
-      </div>
-    </section>
-
-    <!-- 5. RAZONES POR LAS QUE TE QUIERO -->
-    <section id="razones" class="seccion seccion-alterna revelar" aria-labelledby="razones-titulo">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <span class="insignia-seccion" aria-hidden="true">✦</span>
-          <h2 id="razones-titulo" class="titulo-seccion">Razones por las que te quiero</h2>
-          <p id="razones-subtitulo" class="subtitulo-seccion">
-            Toca cada tarjeta para descubrir lo que guardo en el corazón
-          </p>
-          <button type="button" id="btn-voltear-todas" class="boton-secundario">
-            Revelar todas las tarjetas
-          </button>
-        </div>
-
-        <div id="razones-grid" class="razones-grid">
-          <!-- Se rellena dinámicamente desde js/config.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. CARTA FINAL CON EFECTO MÁQUINA DE ESCRIBIR -->
-    <section id="carta" class="seccion seccion-clara revelar" aria-labelledby="carta-titulo">
-      <div class="contenedor contenedor-carta">
-        <div class="encabezado-seccion">
-          <span class="insignia-seccion" aria-hidden="true">✉</span>
-          <h2 id="carta-titulo" class="titulo-seccion">Una carta para ti</h2>
-          <p id="carta-subtitulo" class="subtitulo-seccion">
-            Palabras escritas despacio, como me gusta vivir la vida contigo
-          </p>
-        </div>
-
-        <article class="carta-papel" aria-label="Carta dedicada">
-          <div class="carta-sello" aria-hidden="true">♥</div>
-          <p id="carta-saludo" class="carta-saludo">Mi amor,</p>
-
-          <div id="carta-cuerpo" class="carta-cuerpo" aria-live="polite">
-            <!-- Se escribe con efecto máquina de escribir al hacer scroll -->
-          </div>
-
-          <div id="carta-cierre" class="carta-cierre oculto-suave">
-            <p id="carta-despedida" class="carta-despedida">Con todo mi corazón,</p>
-            <p id="carta-firma" class="carta-firma">Carlos ❤️</p>
-          </div>
-
-          <div class="carta-acciones">
-            <button type="button" id="btn-mostrar-carta" class="boton-texto">
-              Mostrar carta completa al instante
-            </button>
-          </div>
-        </article>
       </div>
     </section>
   </main>
 
   <!-- ====================================================================
-       PIE DE PÁGINA
+       PIE DE PÁGINA MINIMALISTA CON "C & S" Y GIRASOL
        ==================================================================== -->
-  <footer class="pie-pagina">
-    <div class="contenedor">
-      <div class="pie-corazon" aria-hidden="true">♥</div>
-      <p id="pie-nombres" class="pie-nombres">Carlos &amp; Lucía</p>
-      <p id="pie-texto" class="pie-texto">Hecho con todo mi amor para ti</p>
-      <p id="pie-nota" class="pie-nota">Nuestro rincón privado para siempre</p>
+  <footer class="pie-apple">
+    <div class="contenedor pie-interior">
+      <div class="pie-girasol-svg" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="32" height="32">
+          <g transform="translate(32,32)">
+            <g fill="#E5A400">
+              <ellipse rx="5" ry="22" transform="rotate(15)" />
+              <ellipse rx="5" ry="22" transform="rotate(45)" />
+              <ellipse rx="5" ry="22" transform="rotate(75)" />
+              <ellipse rx="5" ry="22" transform="rotate(105)" />
+              <ellipse rx="5" ry="22" transform="rotate(135)" />
+              <ellipse rx="5" ry="22" transform="rotate(165)" />
+            </g>
+            <g fill="#FFC933">
+              <ellipse rx="5" ry="24" transform="rotate(0)" />
+              <ellipse rx="5" ry="24" transform="rotate(30)" />
+              <ellipse rx="5" ry="24" transform="rotate(60)" />
+              <ellipse rx="5" ry="24" transform="rotate(90)" />
+              <ellipse rx="5" ry="24" transform="rotate(120)" />
+              <ellipse rx="5" ry="24" transform="rotate(150)" />
+            </g>
+            <circle r="10" fill="#4A2C0F" />
+          </g>
+        </svg>
+      </div>
+
+      <p id="pie-monograma" class="pie-monograma">
+        <span class="monograma-letra">C</span>
+        <span class="monograma-amp">&amp;</span>
+        <span class="monograma-letra">S</span>
+      </p>
+
+      <p id="pie-texto" class="pie-texto">Hecho con amor</p>
     </div>
   </footer>
 
@@ -309,13 +367,13 @@
     class="lightbox oculto"
     role="dialog"
     aria-modal="true"
-    aria-label="Visor de fotografías"
+    aria-label="Visor de fotografías a pantalla completa"
   >
     <button
       type="button"
       id="lightbox-cerrar"
       class="lightbox-btn lightbox-cerrar"
-      aria-label="Cerrar visor de fotos (Escape)"
+      aria-label="Cerrar visor (Escape)"
     >
       &times;
     </button>
@@ -352,7 +410,7 @@
     </button>
   </div>
 
-  <!-- Scripts (rutas relativas: primero config.js y luego main.js) -->
+  <!-- Scripts (rutas relativas) -->
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>
