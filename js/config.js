@@ -1,185 +1,121 @@
 /**
- * ============================================================================
- * ARCHIVO DE CONFIGURACIÓN PRINCIPAL (js/config.js)
- * ============================================================================
- * ¡Hola! Aquí puedes personalizar TODA la página web sin saber programar.
+ * Configuración de la web (js/config.js)
  *
- * REGLAS BÁSICAS:
- * 1. Cambia únicamente los textos que están entre comillas ("así").
- * 2. No borres las comillas (""), las comas (,) al final de cada línea ni los
- *    corchetes [] o llaves {}.
- * 3. Escribe siempre rutas relativas SIN barra al principio:
- *    Correcto:   "fotos/mifoto.jpg"
- *    Incorrecto: "/fotos/mifoto.jpg"
- * ============================================================================
+ * Aquí se cambian los textos, las fotos, la carta y la música sin tocar el resto.
+ * - Cambia solo lo que va entre comillas.
+ * - No borres comas, corchetes [] ni llaves {}.
+ * - Rutas siempre relativas y sin barra al principio: "fotos/web/mifoto.jpg".
+ * - Las fotos que se ven en la web están en fotos/web/ (versiones ligeras, sin
+ *   datos de ubicación). Si añades una nueva, pásala antes por squoosh.app.
  */
 
 window.CONFIG = {
-  // ==========================================================================
-  // 1. IDENTIDAD Y MONOGRAMA (C & S)
-  // ==========================================================================
-  identidad: {
-    monograma: "Carlos & Sofia"
-  },
+  // Nombres que salen en la cabecera, la intro y el pie.
+  monograma: "Carlos & Sofia",
 
-  // ==========================================================================
-  // 2. PALETA DE COLORES (FONDO ROSA ROMÁNTICO + GIRASOL)
-  // ==========================================================================
-  colores: {
-    amarilloGirasol: "#F5B700", // Amarillo principal del girasol
-    amarilloLuz: "#FFC933",     // Amarillo luminoso para brillos y acentos
-    marronSemilla: "#4A2C0F",   // Marrón cálido del centro del girasol
-    verdeHoja: "#4F7A2B",       // Verde natural del tallo y hojas
-    rosaClaro: "#FDF2F5",       // Inicio del degradado rosa suave
-    rosaMedio: "#F7D6E0",       // Medio del degradado rosa
-    rosaProfundo: "#EAB5C5",    // Final del degradado rosa romántico
-    blanco: "#FFFFFF",          // Blanco para tarjetas
-    textoPrincipal: "#2E151E",  // Burdeos/negro cálido para textos
-    textoSecundario: "#6E4856"  // Tono secundario suave
-  },
-
-  // ==========================================================================
-  // 3. INTRO OBLIGATORIA DEL GIRASOL
-  // ==========================================================================
-  // La animación del girasol aparece SIEMPRE al abrir la página como una intro.
   intro: {
-    duracionSegundos: 3.2,
-    mostrarBotonEntrar: false,
-    textoBoton: "Entrar",
-
-    // Contraseña opcional en la misma intro (cambia a true si quieres activarla)
+    // Segundos que dura la intro si NO hay contraseña.
+    duracionSegundos: 3,
+    // Ojo: esta clave solo es un detalle bonito, no protege nada de verdad
+    // (cualquiera puede leerla en este archivo). Ver README, apartado 7.
     contrasenaActiva: true,
     contrasena: "secreto",
-    placeholderContrasena: "DIndon",
-    mensajeErrorContrasena: "Clave incorrecta, inténtalo de nuevo 🌻"
+    pista: "DIndon",
+    mensajeError: "Esa no es. Prueba otra vez."
   },
 
-  // ==========================================================================
-  // 4. PORTADA ROMÁNTICA (HERO)
-  // ==========================================================================
   portada: {
-    //etiquetaSuperior: "Nuestra Historia",
     nombre1: "Carlos",
-    conector: "&",
     nombre2: "mi negra bella",
-    frase: "Contigo cualquier instante se convierte en mi recuerdo favorito.",
-    fotoFondo: "fotos/portada.svg",
-    textoBoton: "Descubrir nuestra historia"
+    frase: "Contigo, cualquier momento acaba siendo mi recuerdo favorito.",
+    fotoFondo: "fotos/web/fotonuestra1.jpg",
+    textoBoton: "Ver nuestras fotos"
   },
 
-  // ==========================================================================
-  // 5. NUESTROS MOMENTOS (GALERÍA DE FOTOS)
-  // ==========================================================================
-  // CÓMO AÑADIR UNA FOTO:
-  // 1. Copia tu foto (.jpg o .webp) dentro de la carpeta /fotos.
-  // 2. Añade o edita una línea aquí abajo con su ruta relativa ("fotos/nombre.jpg").
-  // 3. Opcional: puedes añadir posicion: "abajo" (o "arriba" / "centro") para ajustar el encuadre.
   galeria: {
-    titulo: "Nuestros momentos.",
-    subtitulo: "Toca cualquier fotografía para verla a pantalla completa.",
+    titulo: "Nuestros momentos",
+    subtitulo: "Toca una foto para verla en grande.",
+    // posicion (opcional): "arriba", "abajo" o "centro" para ajustar el encuadre.
     fotos: [
       {
-        archivo: "fotos/fotoNuestra1.jpg",
-        descripcion: "Fotos borrachos numero 10101010101010",
-        fecha: "portada de album",
-        destacada: "grande"
+        archivo: "fotos/web/fotonuestra1.jpg",
+        descripcion: "Fotos borrachos n.º 10101010101010. Portada del álbum.",
+        fecha: "21 de octubre"
       },
       {
-        archivo: "fotos/steachhh.JPG",
-        descripcion: "steachhhhhhhhhhh",
-        fecha: "Recuerdo 02",
-        destacada: "normal"
+        archivo: "fotos/web/steachhh.jpg",
+        descripcion: "Steachhhhhh",
+        fecha: "21 de octubre"
       },
       {
-        archivo: "fotos/precarrousel.JPG",
-        descripcion: "fondo de pantalla",
-        fecha: "Recuerdo 03",
-        destacada: "normal"
+        archivo: "fotos/web/precarrousel.jpg",
+        descripcion: "Mi fondo de pantalla",
+        fecha: "15 de septiembre"
       },
       {
-        archivo: "fotos/mirada.JPG",
-        descripcion: "Noches inolvidables",
-        fecha: "mirada intensa",
-        destacada: "ancha",
+        archivo: "fotos/web/mirada.jpg",
+        descripcion: "Mirada intensa",
+        fecha: "8 de septiembre",
         posicion: "abajo"
       },
       {
-        archivo: "fotos/soficansada.JPG",
-        descripcion: "hasta la polla de mi :(((((",
-        fecha: "Recuerdo 05",
-        destacada: "normal"
+        archivo: "fotos/web/soficansada.jpg",
+        descripcion: "Hasta la polla de mí :(",
+        fecha: "8 de septiembre"
       },
       {
-        archivo: "fotos/muyBorrachos.JPG",
-        descripcion: "la noche esa toppppppp",
-        fecha: "Recuerdo 06",
-        destacada: "normal"
+        archivo: "fotos/web/muyborrachos.jpg",
+        descripcion: "La noche esa. Toppp.",
+        fecha: "6 de septiembre"
       },
       {
-        archivo: "fotos/1fotofav.jpg",
-        descripcion: "Foto que tengo que imprimir!!!!!!!!!!!!!!",
-        fecha: "Recuerdo 07",
-        destacada: "normal"
+        archivo: "fotos/web/1fotofav.jpg",
+        descripcion: "La foto que tengo que imprimir sí o sí",
+        fecha: ""
       },
       {
-        archivo: "fotos/2fotofav.JPG",
-        descripcion: "muchas fotos favoritas contigo",
-        fecha: "Recuerdo 08",
-        destacada: "grande"
+        archivo: "fotos/web/2fotofav.jpg",
+        descripcion: "Una de mis muchas fotos favoritas contigo",
+        fecha: "10 de septiembre"
       }
     ]
   },
 
-  // ==========================================================================
-  // 6. PÁGINA DE LA CARTA (carta.html: FOTO DE LA CARTA + TEXTO + VÍDEO)
-  // ==========================================================================
   carta: {
-    titulo: "la real!!!",
+    titulo: "Una carta para ti",
+    subtitulo: "",
 
-    // A) LA CARTA EN FOTO (Pon la foto de tu carta en /fotos y escribe aquí su ruta)
+    // Foto de la carta escrita a mano. Cambia la ruta cuando la tengas.
     mostrarFotoCarta: true,
     fotoCarta: "fotos/carta-foto.svg",
-    pieFotoCarta: "suavesuave",
+    pieFotoCarta: "Toca la carta para verla en grande.",
 
-    // B) LA CARTA EN TEXTO (Con efecto máquina de escribir)
+    // Carta en texto. Un párrafo por línea, entre comillas y separados por comas.
+    // Mientras esté vacía, este bloque no se muestra.
     saludo: "Mi amor,",
-    parrafos: [
-      "a hacer que me falta xd "
-    ],
+    parrafos: [],
     despedida: "Con todo mi amor,",
-    firma: "Carlos Picón",
+    firma: "Carlos",
 
-    // C) VÍDEO ESPECIAL EN LA PÁGINA DE LA CARTA
-    // Pon tu vídeo (.mp4, menos de 25 MB) dentro de la carpeta /videos y escribe aquí su ruta:
+    // Vídeo (.mp4, menos de 25 MB) dentro de videos/.
     mostrarVideo: false,
-    tituloVideo: "Nuestro vídeo especial.",
-    subtituloVideo: "Dale al play para revivir este momento juntos.",
+    tituloVideo: "Nuestro vídeo",
+    subtituloVideo: "",
     archivoVideo: "videos/video.mp4",
-    portadaVideo: "fotos/portada.svg"
+    portadaVideo: "fotos/web/2fotofav.jpg"
   },
 
-  // ==========================================================================
-  // 7. MÚSICA DE FONDO (OPCIONAL)
-  // ==========================================================================
+  // Si el archivo no existe, el botón de música no aparece.
   musica: {
-    activa: true,
     archivo: "musica/cancion.mp3",
-    tituloCancion: "Nuestra canción",
     volumen: 0.5
   },
 
-  // ==========================================================================
-  // 8. LLUVIA DE CORAZONES Y CARITAS DE POMPOMPURIN
-  // ==========================================================================
-  petalos: {
-    activarAlInicio: true,
-    cantidad: 18
+  // Corazones y Pompompurin cayendo. Se pueden activar con el botón de abajo.
+  lluvia: {
+    activarAlInicio: false,
+    cantidad: 12
   },
 
-  // ==========================================================================
-  // 9. PIE DE PÁGINA
-  // ==========================================================================
-  pie: {
-    texto: "Hecho con todo mi amor para ti"
-  }
+  pie: "Hecho con todo mi amor para ti"
 };
