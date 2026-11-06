@@ -19,9 +19,17 @@ window.CONFIG = {
     // Ojo: esta clave solo es un detalle bonito, no protege nada de verdad
     // (cualquiera puede leerla en este archivo). Ver README, apartado 7.
     contrasenaActiva: true,
-    contrasena: "secreto",
-    pista: "DIndon",
-    mensajeError: "Esa no es. Prueba otra vez."
+    // Se acepta con o sin "la" delante y sin importar mayúsculas.
+    pregunta: "¿Qué te dije que tirabas bien?",
+    contrasena: "cerveza",
+    pista: "Una pista: la pedimos mucho",
+    mensajeError: "Casi. Piensa en el primer día."
+  },
+
+  // Bloque entre la portada y las fotos. Deja el texto vacío para ocultarlo.
+  historia: {
+    titulo: "Donde empezó todo",
+    texto: "En un McDonald's. Te solté: «Te gusta la cerveza, ¿verdad? Porque la tiras bien». Y a partir de ahí ya no dejamos de hablar."
   },
 
   portada: {
@@ -85,8 +93,8 @@ window.CONFIG = {
     titulo: "Una carta para ti",
     subtitulo: "",
 
-    // Foto de la carta escrita a mano. Cambia la ruta cuando la tengas.
-    mostrarFotoCarta: true,
+    // Foto de la carta escrita a mano (la de ejemplo trae instrucciones, no la muestres).
+    mostrarFotoCarta: false, // pon true cuando cambies la ruta por la foto real
     fotoCarta: "fotos/carta-foto.svg",
     pieFotoCarta: "Toca la carta para verla en grande.",
 
@@ -96,6 +104,8 @@ window.CONFIG = {
     parrafos: [],
     despedida: "Con todo mi amor,",
     firma: "Carlos",
+    // Sale debajo de la firma cuando la carta está escrita. Es el momento de darle la caja.
+    posdata: "P. D.: Ahora mira lo que tengo en las manos.",
 
     // Vídeo (.mp4, menos de 25 MB) dentro de videos/.
     mostrarVideo: false,

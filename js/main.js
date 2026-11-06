@@ -46,6 +46,16 @@
     let temporizador = null;
 
     if (campo && intro.pista) campo.placeholder = intro.pista;
+    if (intro.pregunta) $("intro-pregunta").textContent = intro.pregunta;
+
+    // Ignora mayúsculas, tildes, espacios y un artículo delante ("la cerveza" = "cerveza").
+    const normalizar = (s) =>
+      String(s || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "")
+        .replace(/^\s*(la|el|las|los)\s+/, "")
+        .replace(/\s+/g, "");
 
     function cerrar() {
       clearTimeout(temporizador);
@@ -74,8 +84,7 @@
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const correcta = String(intro.contrasena || "").trim().toLowerCase();
-      if (campo.value.trim().toLowerCase() === correcta) {
+      if (normalizar(campo.value) === normalizar(intro.contrasena)) {
         cerrar();
         return;
       }
@@ -108,6 +117,19 @@
 
     const img = $("portada-img");
     if (img && p.fotoFondo) img.src = p.fotoFondo;
+  }
+
+  /* ---------- Donde empezó todo ---------- */
+  function iniciarHistoria() {
+    const bloque = $("historia");
+    if (!bloque) return;
+    const h = cfg.historia || {};
+    if (!h.texto) {
+      bloque.hidden = true;
+      return;
+    }
+    if (h.titulo) $("historia-titulo").textContent = h.titulo;
+    $("historia-texto").textContent = h.texto;
   }
 
   /* ---------- Visor de fotos (usa <dialog>) ---------- */
@@ -250,6 +272,7 @@
       ponerTexto("carta-saludo", c.saludo);
       ponerTexto("carta-despedida", c.despedida);
       ponerTexto("carta-firma", c.firma);
+      ponerTexto("carta-posdata", c.posdata);
       escribirCarta(parrafos);
     }
 
@@ -425,6 +448,7 @@
     visor.iniciar();
     iniciarIntro();
     iniciarPortada();
+    iniciarHistoria();
     iniciarGaleria();
     iniciarCarta();
     iniciarLluvia();

@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <script>
     if (!sessionStorage.getItem("intro-vista")) document.documentElement.classList.add("intro-pendiente");
   </script>
@@ -62,7 +62,7 @@
     <p id="intro-monograma" class="monograma intro-monograma" data-monograma>C &amp; S</p>
 
     <form id="intro-form" class="intro-form" autocomplete="off" hidden>
-      <label for="intro-clave">Nuestra clave</label>
+      <label id="intro-pregunta" for="intro-clave">Nuestra clave</label>
       <div class="intro-fila">
         <input id="intro-clave" type="password" required aria-describedby="intro-error">
         <button type="submit" class="boton">Entrar</button>
@@ -97,6 +97,13 @@
         </h1>
         <p id="portada-frase" class="portada-frase">Contigo, cualquier momento acaba siendo mi recuerdo favorito.</p>
         <a id="portada-boton" href="#galeria" class="boton boton-claro">Ver nuestras fotos</a>
+      </div>
+    </section>
+
+    <section id="historia" class="historia" aria-labelledby="historia-titulo">
+      <div class="contenedor contenedor-estrecho">
+        <h2 id="historia-titulo">Donde empezó todo</h2>
+        <p id="historia-texto"></p>
       </div>
     </section>
 
@@ -154,7 +161,7 @@
     <button type="button" id="visor-siguiente" class="visor-boton visor-siguiente" aria-label="Foto siguiente">&#8250;</button>
   </dialog>
 
-  <script src="js/config.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/config.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>
