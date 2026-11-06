@@ -26,12 +26,6 @@ window.CONFIG = {
     mensajeError: "Casi. Piensa en el primer día."
   },
 
-  // Bloque entre la portada y las fotos. Deja el texto vacío para ocultarlo.
-  historia: {
-    titulo: "Donde empezó todo",
-    texto: "En un McDonald's. Te solté: «Te gusta la cerveza, ¿verdad? Porque la tiras bien». Y a partir de ahí ya no dejamos de hablar."
-  },
-
   portada: {
     nombre1: "Carlos",
     nombre2: "mi negra bella",

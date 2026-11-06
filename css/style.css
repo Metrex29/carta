@@ -413,32 +413,6 @@ input {
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* Donde empezó todo */
-.historia {
-  padding: var(--e5) 0 0;
-  text-align: center;
-}
-
-.historia h2 {
-  margin-bottom: var(--e2);
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
-}
-
-.historia h2::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  margin: var(--e2) auto 0;
-  background: var(--acento);
-}
-
-.historia p {
-  font-family: var(--serif);
-  font-size: clamp(1.25rem, 2.6vw, 1.5rem);
-  line-height: 1.5;
-}
-
 /* 7. Galería -------------------------------------------------------------- */
 /* Columnas tipo "muro": cada foto se ve entera con su proporción real */
 .galeria {

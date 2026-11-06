@@ -119,19 +119,6 @@
     if (img && p.fotoFondo) img.src = p.fotoFondo;
   }
 
-  /* ---------- Donde empezó todo ---------- */
-  function iniciarHistoria() {
-    const bloque = $("historia");
-    if (!bloque) return;
-    const h = cfg.historia || {};
-    if (!h.texto) {
-      bloque.hidden = true;
-      return;
-    }
-    if (h.titulo) $("historia-titulo").textContent = h.titulo;
-    $("historia-texto").textContent = h.texto;
-  }
-
   /* ---------- Visor de fotos (usa <dialog>) ---------- */
   const visor = {
     fotos: [],
@@ -448,7 +435,6 @@
     visor.iniciar();
     iniciarIntro();
     iniciarPortada();
-    iniciarHistoria();
     iniciarGaleria();
     iniciarCarta();
     iniciarLluvia();
