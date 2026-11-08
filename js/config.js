@@ -79,6 +79,46 @@ window.CONFIG = {
         archivo: "fotos/web/2fotofav.jpg",
         descripcion: "Una de mis muchas fotos favoritas contigo",
         fecha: "10 de septiembre"
+      },
+      {
+        archivo: "fotos/web/aliens.jpg",
+        descripcion: "borrachos creo aqui tmb ",
+        fecha: ""
+      },
+      {
+        archivo: "fotos/web/disfraces.jpg",
+        descripcion: "banda latina de musica",
+        fecha: ""
+      },
+      {
+        archivo: "fotos/web/mono.jpg",
+        descripcion: "ladrones",
+        fecha: ""
+      },
+      {
+        archivo: "fotos/web/ramo.jpg",
+        descripcion: "",
+        fecha: ""
+      },
+      {
+        archivo: "fotos/web/autobus.jpg",
+        descripcion: "me miran con amor",
+        fecha: ""
+      },
+      {
+        archivo: "fotos/web/dormidos.jpg",
+        descripcion: "sopa sopa ",
+        fecha: ""
+      },
+      {
+        archivo: "fotos/web/metro.jpg",
+        descripcion: "MUY borrachos al menos yo xd",
+        fecha: ""
+      },
+      {
+        archivo: "fotos/web/ramen.jpg",
+        descripcion: "charcadaaa mi amor",
+        fecha: ""
       }
     ]
   },
