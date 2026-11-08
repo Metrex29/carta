@@ -278,6 +278,7 @@
 
     // Si no queda nada que enseñar, se avisa en vez de dejar la página vacía.
     if (bloqueFoto.hidden && bloqueTexto.hidden && bloqueVideo.hidden) {
+      if (c.mensajeSinCarta) $("carta-vacia").textContent = c.mensajeSinCarta;
       $("carta-vacia").hidden = false;
     }
   }
